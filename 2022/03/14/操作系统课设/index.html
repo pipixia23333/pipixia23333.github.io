@@ -27,20 +27,20 @@
 <meta property="og:site_name" content="Const_Point">
 <meta property="og:description" content="操作系统课设Nachos系统总结中断控制器1、几个供外部程序使用的调用接口；  （1）Interrupt::SetLevel(IntOff)：用于关中断；  （2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作；  （3）Interrupt::Halt()：实现停机操作；  （4）Interrupt::Idl">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png">
-<meta property="og:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png">
 <meta property="article:published_time" content="2022-03-14T08:45:38.000Z">
 <meta property="article:modified_time" content="2022-03-13T17:25:04.306Z">
 <meta property="article:author" content="一枚常指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
+<meta name="twitter:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
 
 <link rel="canonical" href="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/">
 
@@ -163,18 +163,21 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container"></div>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
-      
     </div>
   </div>
 
@@ -282,7 +285,7 @@
 
 <h2 id="实验一-Nachos系统的安装与调试"><a href="#实验一-Nachos系统的安装与调试" class="headerlink" title="实验一 Nachos系统的安装与调试"></a>实验一 Nachos系统的安装与调试</h2><h3 id="安装nachos"><a href="#安装nachos" class="headerlink" title="安装nachos"></a>安装nachos</h3><p>根据指导书操作</p>
 <p>最终结果</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png" alt="image-20220312173117116"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png" alt="image-20220312173117116"></p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>（1）在你所生成的 Nachos 系统中，下述函数的地址是多少？并说明找到这些函<br>数地址的过程及方法。<br>i. InterruptEnable()<br>ii. SimpleThread()<br>iii. ThreadFinish()<br>iv. ThreadRoot()</p>
 <p>（2）下述线程对象的地址是多少？并说明找到这些对象地址的过程及方法。<br>i. the main thread of the Nachos<br>ii. the forked thread created by the main thread</p>
 <p>（3）当主线程第一次运行 SWITCH()函数，执行到函数 SWITCH()的最后一条指<br>令 ret 时，CPU 返回的地址是多少？ 该地址对应程序的什么位置？</p>
@@ -467,7 +470,7 @@
 
 <p>修改文件</p>
 <p>可得实验结果</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png" alt="image-20220312220345657"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png" alt="image-20220312220345657"></p>
 <h4 id="分析并理解，Thread-Fork-创建线程的方法"><a href="#分析并理解，Thread-Fork-创建线程的方法" class="headerlink" title="分析并理解，Thread::Fork()创建线程的方法"></a>分析并理解，Thread::Fork()创建线程的方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Thread::Fork(VoidFunctionPtr func, _int arg)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Forking thread \&quot;%s\&quot; with func = 0x%x, arg = %d\n&quot;,  name, (int) func, arg);//设置debug信息</span><br><span class="line">    </span><br><span class="line">    StackAllocate(func, arg);//为线程分配栈</span><br><span class="line"></span><br><span class="line">    IntStatus oldLevel = interrupt-&gt;SetLevel(IntOff);//关中断</span><br><span class="line">    scheduler-&gt;ReadyToRun(this);	// 将线程状态设置为ready并加入就绪队列</span><br><span class="line">    </span><br><span class="line">    (void) interrupt-&gt;SetLevel(oldLevel);//开中断</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
 
 <p>fork()</p>
@@ -481,7 +484,7 @@
 <h4 id="rs轮转调度"><a href="#rs轮转调度" class="headerlink" title="-rs轮转调度"></a>-rs轮转调度</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">else if (!strcmp(*argv, &quot;-rs&quot;)) &#123;</span><br><span class="line">	    ASSERT(argc &gt; 1);</span><br><span class="line">	    RandomInit(atoi(*(argv + 1)));	// initialize pseudo-random</span><br><span class="line">						// number generator</span><br><span class="line">	    randomYield = TRUE;</span><br><span class="line">	    argCount = 2;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>-rs后可跟数字，作为随机数初始化种子</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png" alt="image-20220313005518934"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png" alt="image-20220313005518934"></p>
 <p>可以看到与上次运行结果确实不同，在producer0产生的消息未填满缓冲区时就发生了调度</p>
 <p>通过阅读Interrupt的源码可知，nachos中断响应的时机</p>
 <ul>
@@ -745,9 +748,9 @@
 </tr>
 </tbody></table>
 <p>在系统初始化后查看硬盘内容</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png" alt="image-20220314004009009"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png" alt="image-20220314004009009"></p>
 <p>此时对应查看</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png" alt="image-20220314005505549"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png" alt="image-20220314005505549"></p>
 <p>与DISK文件内容一致</p>
 <p>总结其布局</p>
 <p>文件系统 FileSystem</p>
@@ -789,7 +792,7 @@
 </li>
 </ul>
 <h4 id="更多的验证"><a href="#更多的验证" class="headerlink" title="更多的验证"></a>更多的验证</h4><p>（5）利用命令 nachos –cp ..&#x2F;test&#x2F;small samll 复制文件..&#x2F;test&#x2F;small 到硬盘 DISK 中； </p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png" alt="image-20220314010620035"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png" alt="image-20220314010620035"></p>
 <p>可以看到3号扇区增加一个文件目录项small</p>
 <table>
 <thead>
@@ -812,14 +815,14 @@
 <li>分配扇区个数：1</li>
 <li>扇区位置：6号扇区</li>
 </ul>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png" alt="image-20220314010126127"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png" alt="image-20220314010126127"></p>
 <p>验证可得相同内容</p>
 <p>（6）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解创建一个 文件后相关的结构在硬盘上的存储布局； </p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png" alt="image-20220314011027327"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png" alt="image-20220314011027327"></p>
 <p>文件目录表、位示图全部初始化为初始信息。</p>
 <p>（7）复制更多的文件到 DISK 中，然后删除一个文件，利用 hexdump –C DISK 查看文件的布局，分析文件系统的管理策略。</p>
 <p>复制small、big文件到DISK中，删除small文件，查看DISK内容</p>
-<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png" alt="image-20220314010728426"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png" alt="image-20220314010728426"></p>
 <p>删除文件samll后</p>
 <p>更改</p>
 <ul>
@@ -1152,10 +1155,7 @@
 
 
   
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
+<script src="/js/local-search.js"></script>
 
 
 
