@@ -1,252 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/03/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<link rel="stylesheet" href="/css/main.css">
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="操作系统复习 OS的发展简史早期的OS-简单的监控程序+人工操作缺点  用户独占全机，资源浪费 CPU等待人工操作 CPU既负责计算，又负责传输（单控制方式  矛盾  人机矛盾：人工操作方式与机器利用率的矛盾 CPU与I&#x2F;O设备间速度不匹配的矛盾  解决方法：  通道技术 脱机输入输出方式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hellow cloudCalculation">
-<meta property="og:url" content="http://example.com/2022/03/07/hellow-cloudCalculation/index.html">
-<meta property="og:site_name" content="Const_Point">
-<meta property="og:description" content="操作系统复习 OS的发展简史早期的OS-简单的监控程序+人工操作缺点  用户独占全机，资源浪费 CPU等待人工操作 CPU既负责计算，又负责传输（单控制方式  矛盾  人机矛盾：人工操作方式与机器利用率的矛盾 CPU与I&#x2F;O设备间速度不匹配的矛盾  解决方法：  通道技术 脱机输入输出方式">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/03/07/hellow-cloudCalculation/OneDrive%20-%20mail.sdu.edu.cn/md/image/image-20211210170232550.png">
-<meta property="og:image" content="http://example.com/2022/03/07/hellow-cloudCalculation/OneDrive%20-%20mail.sdu.edu.cn/md/image/image-20211210170347255.png">
-<meta property="article:published_time" content="2022-03-07T09:27:22.000Z">
-<meta property="article:modified_time" content="2022-03-09T14:47:49.637Z">
-<meta property="article:author" content="一枚常指针">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/03/07/hellow-cloudCalculation/OneDrive%20-%20mail.sdu.edu.cn/md/image/image-20211210170232550.png">
-
-<link rel="canonical" href="http://example.com/2022/03/07/hellow-cloudCalculation/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-
-  <title>hellow cloudCalculation | Const_Point</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Const_Point</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container"></div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
-</div>
-
-      
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/07/hellow-cloudCalculation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile_photo.jpg">
-      <meta itemprop="name" content="一枚常指针">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Const_Point">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          hellow cloudCalculation
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-07 17:27:22" itemprop="dateCreated datePublished" datetime="2022-03-07T17:27:22+08:00">2022-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-09 22:47:49" itemprop="dateModified" datetime="2022-03-09T22:47:49+08:00">2022-03-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>操作系统复习</p>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hello world</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hellow cloudCalculation</title>
+    <url>/2022/03/07/hellow-cloudCalculation/</url>
+    <content><![CDATA[<p>操作系统复习</p>
 <h1 id="OS的发展简史"><a href="#OS的发展简史" class="headerlink" title="OS的发展简史"></a>OS的发展简史</h1><h2 id="早期的OS-简单的监控程序-人工操作"><a href="#早期的OS-简单的监控程序-人工操作" class="headerlink" title="早期的OS-简单的监控程序+人工操作"></a>早期的OS-简单的监控程序+人工操作</h2><p>缺点</p>
 <ul>
 <li>用户独占全机，资源浪费</li>
@@ -1840,12 +1618,12 @@
 </blockquote>
 <p>上述方案容易出现写者饥饿现象</p>
 <p>解决方案：写者优先，有写者到来时，该写者阻止后续读者访问该对象</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Reader: while(true) &#123;</span><br><span class="line">                wait(w);         //尽管有读者在读，但封锁刚到来的读者</span><br><span class="line">                 wait(rmutex);</span><br><span class="line">                 if readcount=0 then wait(wmutext);</span><br><span class="line">                 readcount:=readcount+1;</span><br><span class="line">                 signal(rmutex);</span><br><span class="line">                 signal(w);</span><br><span class="line">                  perform read operation;</span><br><span class="line">                 wait(rmutext);</span><br><span class="line">                 readcount:=readcount-1;</span><br><span class="line">                 if readcount=0 then signal(wmutext);</span><br><span class="line">                 signal(rmutex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">writer:</span><br><span class="line">        while(true) &#123;</span><br><span class="line">                 wait(w);</span><br><span class="line">                 wait(wmutex);</span><br><span class="line">                  perform write operation;</span><br><span class="line">                 signal(wmutex);</span><br><span class="line">                 signal(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Reader: while(true) &#123;</span><br><span class="line">                wait(w);         //尽管有读者在读，但封锁刚到来的读者</span><br><span class="line">                 wait(rmutex);</span><br><span class="line">                 if readcount=0 then wait(wmutext);</span><br><span class="line">                 readcount:=readcount+1;</span><br><span class="line">                 signal(rmutex);</span><br><span class="line">                 signal(w);</span><br><span class="line">                  perform read operation;</span><br><span class="line">                 wait(rmutext);</span><br><span class="line">                 readcount:=readcount-1;</span><br><span class="line">                 if readcount=0 then signal(wmutext);</span><br><span class="line">                 signal(rmutex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">writer:</span><br><span class="line">        while(true) &#123;</span><br><span class="line">                 wait(w);</span><br><span class="line">                 wait(wmutex);</span><br><span class="line">                  perform write operation;</span><br><span class="line">                 signal(wmutex);</span><br><span class="line">                 signal(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="哲学家就餐问题"><a href="#哲学家就餐问题" class="headerlink" title="哲学家就餐问题"></a>哲学家就餐问题</h3><p>简单方案</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">The structure of Philosopher i:</span><br><span class="line"></span><br><span class="line">While (true)  &#123; </span><br><span class="line">          wait ( chopstick[i] );</span><br><span class="line">	     wait ( chopStick[ (i + 1) % 5] );	</span><br><span class="line">	             // eat</span><br><span class="line">	     signal ( chopstick[i] );</span><br><span class="line">	     signal (chopstick[ (i + 1) % 5] );</span><br><span class="line">                 //  think</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The structure of Philosopher i:</span><br><span class="line"></span><br><span class="line">While (true)  &#123; </span><br><span class="line">          wait ( chopstick[i] );</span><br><span class="line">	     wait ( chopStick[ (i + 1) % 5] );	</span><br><span class="line">	             // eat</span><br><span class="line">	     signal ( chopstick[i] );</span><br><span class="line">	     signal (chopstick[ (i + 1) % 5] );</span><br><span class="line">                 //  think</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>问题：可能会引起死锁</p>
 <p>解决方式</p>
@@ -1868,7 +1646,7 @@
 <ul>
 <li>若座位已满选择离开，若理发室忙，等待室有座位，则在椅子上等待</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Customer:</span><br><span class="line">While (1) &#123;</span><br><span class="line">      wait(waitingMutex);          //实现对waiting的互斥访问</span><br><span class="line">if (waiting &lt; CHAIRS)  &#123;   //如果有座位空闲</span><br><span class="line">   waiting=waiting +1;       //</span><br><span class="line">   signal(waitingMutex);</span><br><span class="line">   signal(customers);        //通知理发师（相当于在诊所中交上病例）</span><br><span class="line">   wait(barberReady);       //等待理发师呼叫（相当于等待医生）</span><br><span class="line">&#125; </span><br><span class="line">else   &#123;                             // 理发店已满，离开</span><br><span class="line">   signal(waitingMutex);</span><br><span class="line">   leaving；</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Barber:</span><br><span class="line">while (true)  &#123;</span><br><span class="line">	wait(customers);  //检查有无顾客（医生查检查是否还有无病例）</span><br><span class="line">                             //如果没有顾客，睡眠（等待顾客）</span><br><span class="line">	wait(waitingMutex);         // 实现对waiting的互斥访问）</span><br><span class="line">	waiting=waiting-1;</span><br><span class="line">	signal(waitingMutex);      //释放waiting的访问权</span><br><span class="line"></span><br><span class="line">	signal(barberReady);  //理发师准备好可以服务（呼叫顾客）（呼叫病人）</span><br><span class="line">	cut-hair;               //理发（看病）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Customer:</span><br><span class="line">While (1) &#123;</span><br><span class="line">      wait(waitingMutex);          //实现对waiting的互斥访问</span><br><span class="line">if (waiting &lt; CHAIRS)  &#123;   //如果有座位空闲</span><br><span class="line">   waiting=waiting +1;       //</span><br><span class="line">   signal(waitingMutex);</span><br><span class="line">   signal(customers);        //通知理发师（相当于在诊所中交上病例）</span><br><span class="line">   wait(barberReady);       //等待理发师呼叫（相当于等待医生）</span><br><span class="line">&#125; </span><br><span class="line">else   &#123;                             // 理发店已满，离开</span><br><span class="line">   signal(waitingMutex);</span><br><span class="line">   leaving；</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Barber:</span><br><span class="line">while (true)  &#123;</span><br><span class="line">	wait(customers);  //检查有无顾客（医生查检查是否还有无病例）</span><br><span class="line">                             //如果没有顾客，睡眠（等待顾客）</span><br><span class="line">	wait(waitingMutex);         // 实现对waiting的互斥访问）</span><br><span class="line">	waiting=waiting-1;</span><br><span class="line">	signal(waitingMutex);      //释放waiting的访问权</span><br><span class="line"></span><br><span class="line">	signal(barberReady);  //理发师准备好可以服务（呼叫顾客）（呼叫病人）</span><br><span class="line">	cut-hair;               //理发（看病）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1881,11 +1659,11 @@
 <li>在两种材料被相应的吸烟者取走之前，不允许供应新的材料。</li>
 <li>这一过程重复进行。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">semaphore tobacco_paper = 0 // waiting for tobacco and paper</span><br><span class="line">semaphore tobacco_matches = 0 // waiting for tobacco and matches</span><br><span class="line">semaphore paper_matches = 0 // waiting for paper and matches</span><br><span class="line">semaphore doneSmoking = 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">semaphore tobacco_paper = 0 // waiting for tobacco and paper</span><br><span class="line">semaphore tobacco_matches = 0 // waiting for tobacco and matches</span><br><span class="line">semaphore paper_matches = 0 // waiting for paper and matches</span><br><span class="line">semaphore doneSmoking = 1</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="捡棋子问题"><a href="#捡棋子问题" class="headerlink" title="捡棋子问题"></a>捡棋子问题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">捡黑子进程</span><br><span class="line">While (true) </span><br><span class="line">&#123;</span><br><span class="line">    wait(black);</span><br><span class="line">     捡一个黑子；</span><br><span class="line">    signal(white); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">捡白子进程</span><br><span class="line">While (true) </span><br><span class="line">&#123;</span><br><span class="line">    wait(white);</span><br><span class="line">     捡一个白子；</span><br><span class="line">    signal(black); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="捡棋子问题"><a href="#捡棋子问题" class="headerlink" title="捡棋子问题"></a>捡棋子问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">捡黑子进程</span><br><span class="line">While (true) </span><br><span class="line">&#123;</span><br><span class="line">    wait(black);</span><br><span class="line">     捡一个黑子；</span><br><span class="line">    signal(white); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">捡白子进程</span><br><span class="line">While (true) </span><br><span class="line">&#123;</span><br><span class="line">    wait(white);</span><br><span class="line">     捡一个白子；</span><br><span class="line">    signal(black); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>设置初值，black&#x3D;M，white&#x3D;N，思考两进程之间执行次数的制约</p>
 <ul>
@@ -1894,7 +1672,7 @@
 <li><p>捡白子的次数比捡黑子的次数最多多N次</p>
 </li>
 </ul>
-<h3 id="保证并发度的情况下实现临界资源互斥"><a href="#保证并发度的情况下实现临界资源互斥" class="headerlink" title="保证并发度的情况下实现临界资源互斥"></a>保证并发度的情况下实现临界资源互斥</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">  float a;</span><br><span class="line">  float b;</span><br><span class="line">&#125;  cnum;</span><br><span class="line">cnum x,y,z; //全局变量</span><br><span class="line"></span><br><span class="line">//计算两复数之和</span><br><span class="line">cnum add(cnum p, cnum q) &#123;</span><br><span class="line">   cnum s;</span><br><span class="line">   s.a=p.a+q.a;</span><br><span class="line">   s.b=p.b+q.b;</span><br><span class="line">   return s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="保证并发度的情况下实现临界资源互斥"><a href="#保证并发度的情况下实现临界资源互斥" class="headerlink" title="保证并发度的情况下实现临界资源互斥"></a>保证并发度的情况下实现临界资源互斥</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">  float a;</span><br><span class="line">  float b;</span><br><span class="line">&#125;  cnum;</span><br><span class="line">cnum x,y,z; //全局变量</span><br><span class="line"></span><br><span class="line">//计算两复数之和</span><br><span class="line">cnum add(cnum p, cnum q) &#123;</span><br><span class="line">   cnum s;</span><br><span class="line">   s.a=p.a+q.a;</span><br><span class="line">   s.b=p.b+q.b;</span><br><span class="line">   return s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -1925,7 +1703,7 @@
 </tr>
 </tbody></table>
 <p>为了提高线程之间的并发度：仅保证相关临界区互斥访问即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Semaphore mutex_y1=1;   // 用于thread1与thread3互斥访问y；Semaphore mutex_y2=1;   // 用于thread2与thread3互斥访问y；Semaphore mutex_z=1;     // 用于thread2与thread3互斥访问z；thread1 &#123;   cnum w;   P(mutex_y1);   w=add(x,y);   V(mutex_y1)   …….   &#125;thread2 &#123;   cnum w;   P(mutex_y2);   P(mutex_z);   w=add(y,z);   V(mutex_z);   V(mutex_y2);   …….   &#125;thread3 &#123;   cnum w;   w.a=1;   w.b=1;   P(mutex_z);   z=add(z,w);   V(mutex_z);   P(mutex_y1);   P(mutex_y2);   y=add(y,w);   V(mutex_y2);   V(mutex_y1);   …….   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Semaphore mutex_y1=1;   // 用于thread1与thread3互斥访问y；Semaphore mutex_y2=1;   // 用于thread2与thread3互斥访问y；Semaphore mutex_z=1;     // 用于thread2与thread3互斥访问z；thread1 &#123;   cnum w;   P(mutex_y1);   w=add(x,y);   V(mutex_y1)   …….   &#125;thread2 &#123;   cnum w;   P(mutex_y2);   P(mutex_z);   w=add(y,z);   V(mutex_z);   V(mutex_y2);   …….   &#125;thread3 &#123;   cnum w;   w.a=1;   w.b=1;   P(mutex_z);   z=add(z,w);   V(mutex_z);   P(mutex_y1);   P(mutex_y2);   y=add(y,w);   V(mutex_y2);   V(mutex_y1);   …….   &#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -3542,208 +3320,935 @@
 <li><p>用户分配角色，授权访问特权和程序</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>操作系统课设</title>
+    <url>/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/</url>
+    <content><![CDATA[<h1 id="操作系统课设"><a href="#操作系统课设" class="headerlink" title="操作系统课设"></a>操作系统课设</h1><h2 id="Nachos系统总结"><a href="#Nachos系统总结" class="headerlink" title="Nachos系统总结"></a>Nachos系统总结</h2><h3 id="中断控制器"><a href="#中断控制器" class="headerlink" title="中断控制器"></a>中断控制器</h3><p>1、几个供外部程序使用的调用接口； </p>
+<p>（1）Interrupt::SetLevel(IntOff)：用于关中断； </p>
+<p>（2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作； </p>
+<p>（3）Interrupt::Halt()：实现停机操作； </p>
+<p>（4）Interrupt::Idle()：相当于一般操作系统中的 idle 进程；</p>
+<span id="more"></span>
 
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/03/07/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/03/10/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/" rel="next" title="博客的搭建">
-      博客的搭建 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OS%E7%9A%84%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">OS的发展简史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A9%E6%9C%9F%E7%9A%84OS-%E7%AE%80%E5%8D%95%E7%9A%84%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F-%E4%BA%BA%E5%B7%A5%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">早期的OS-简单的监控程序+人工操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.2.</span> <span class="nav-text">批处理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%E5%B0%8F%E7%BB%93"><span class="nav-number">1.2.1.</span> <span class="nav-text">单道批处理系统小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.2.2.</span> <span class="nav-text">多道批处理系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.</span> <span class="nav-text">分时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UNIX%EF%BC%9A%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BB%A3%E8%A1%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">UNIX：现代操作系统的代表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.4.</span> <span class="nav-text">桌面系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">并行系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.6.</span> <span class="nav-text">集群系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.7.</span> <span class="nav-text">实时系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">操作系统介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">计算机系统操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">2.1.1.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD"><span class="nav-number">2.1.2.</span> <span class="nav-text">中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.3.</span> <span class="nav-text">存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-x2F-O%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">I&#x2F;O结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.</span> <span class="nav-text">计算机体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="nav-number">2.4.</span> <span class="nav-text">操作系统结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">2.5.</span> <span class="nav-text">操作系统的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">2.5.1.</span> <span class="nav-text">系统调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-1"><span class="nav-number">2.6.</span> <span class="nav-text">操作系统结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-1"><span class="nav-number">2.7.</span> <span class="nav-text">系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.8.</span> <span class="nav-text">系统调用的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.9.</span> <span class="nav-text">系统调用的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-2"><span class="nav-number">2.10.</span> <span class="nav-text">操作系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%BB%93%E6%9E%84"><span class="nav-number">2.10.1.</span> <span class="nav-text">简单结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">2.10.2.</span> <span class="nav-text">分层方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="nav-number">2.10.3.</span> <span class="nav-text">微内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97"><span class="nav-number">2.10.4.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.10.5.</span> <span class="nav-text">虚拟机</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BA%94%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="nav-number">3.1.</span> <span class="nav-text">进程的五个基本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-number">3.2.</span> <span class="nav-text">进程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCB"><span class="nav-number">3.3.</span> <span class="nav-text">PCB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PCB%E8%A1%A8"><span class="nav-number">3.3.1.</span> <span class="nav-text">PCB表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-number">3.4.</span> <span class="nav-text">进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E9%98%9F%E5%88%97"><span class="nav-number">3.4.1.</span> <span class="nav-text">调度队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.4.2.</span> <span class="nav-text">调度程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-number">3.4.3.</span> <span class="nav-text">上下文切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="nav-number">3.5.</span> <span class="nav-text">进程操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="nav-number">3.5.1.</span> <span class="nav-text">进程创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%88%E6%AD%A2"><span class="nav-number">3.5.2.</span> <span class="nav-text">进程终止</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="nav-number">3.6.</span> <span class="nav-text">进程间通信</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">多线程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%BA%93"><span class="nav-number">4.2.</span> <span class="nav-text">线程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">多线程问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">4.3.1.</span> <span class="nav-text">线程池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU%E8%B0%83%E5%BA%A6"><span class="nav-number">5.</span> <span class="nav-text">CPU调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU%E7%A8%8B%E5%BA%8F%E8%B0%83%E5%BA%A6"><span class="nav-number">5.0.1.</span> <span class="nav-text">CPU程序调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A2%E5%8D%A0%E8%B0%83%E5%BA%A6"><span class="nav-number">5.0.2.</span> <span class="nav-text">抢占调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%B4%BE%E7%A8%8B%E5%BA%8F"><span class="nav-number">5.0.3.</span> <span class="nav-text">分派程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E5%87%86%E5%88%99"><span class="nav-number">5.1.</span> <span class="nav-text">调度准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%88%B0%E5%85%88%E6%9C%8D%E5%8A%A1%E8%B0%83%E5%BA%A6-First-Come%EF%BC%8CFirst-Served-scheduling"><span class="nav-number">5.2.1.</span> <span class="nav-text">先到先服务调度(First-Come，First-Served scheduling)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95%EF%BC%88shortest-job-first-scheduling-SJF"><span class="nav-number">5.2.2.</span> <span class="nav-text">最短作业优先算法（shortest-job-first scheduling,SJF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6-priority-scheduling-algorithm"><span class="nav-number">5.2.3.</span> <span class="nav-text">优先级调度(priority scheduling algorithm)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E8%BD%AC%E6%B3%95%E8%B0%83%E5%BA%A6-round-robin-RR"><span class="nav-number">5.2.4.</span> <span class="nav-text">轮转法调度(round-robin,RR)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E9%98%9F%E5%88%97%E8%B0%83%E5%BA%A6-Multilevel-Queue-Scheduling"><span class="nav-number">5.2.5.</span> <span class="nav-text">多级队列调度(Multilevel Queue Scheduling)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97%E8%B0%83%E5%BA%A6-Multilevel-Feedback-Queue-Scheduling"><span class="nav-number">5.2.6.</span> <span class="nav-text">多级反馈队列调度(Multilevel Feedback-Queue Scheduling)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-number">5.3.</span> <span class="nav-text">线程调度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">6.</span> <span class="nav-text">进程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">6.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%B4%E7%95%8C%E5%8C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">6.1.1.</span> <span class="nav-text">解决临界区问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Peterson%E7%AE%97%E6%B3%95"><span class="nav-number">6.2.</span> <span class="nav-text">Peterson算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%90%8C%E6%AD%A5"><span class="nav-number">6.3.</span> <span class="nav-text">硬件同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%EF%BC%88semaphore%EF%BC%89"><span class="nav-number">6.4.</span> <span class="nav-text">信号量（semaphore）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E4%B8%8E%E9%A5%A5%E9%A5%BF"><span class="nav-number">6.4.1.</span> <span class="nav-text">死锁与饥饿</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.</span> <span class="nav-text">经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.1.</span> <span class="nav-text">生产者消费者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.2.</span> <span class="nav-text">哲学家就餐问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9D%A1%E7%9C%A0%E7%9A%84%E7%90%86%E5%8F%91%E5%B8%88%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.3.</span> <span class="nav-text">睡眠的理发师问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%B8%E7%83%9F%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.4.</span> <span class="nav-text">吸烟者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A1%E6%A3%8B%E5%AD%90%E9%97%AE%E9%A2%98"><span class="nav-number">6.5.5.</span> <span class="nav-text">捡棋子问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E8%AF%81%E5%B9%B6%E5%8F%91%E5%BA%A6%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9E%E7%8E%B0%E4%B8%B4%E7%95%8C%E8%B5%84%E6%BA%90%E4%BA%92%E6%96%A5"><span class="nav-number">6.5.6.</span> <span class="nav-text">保证并发度的情况下实现临界资源互斥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E7%A8%8B"><span class="nav-number">6.6.</span> <span class="nav-text">管程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">7.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.1.</span> <span class="nav-text">系统模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">7.2.</span> <span class="nav-text">死锁的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="nav-number">7.2.1.</span> <span class="nav-text">死锁预防</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="nav-number">7.2.2.</span> <span class="nav-text">死锁避免</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B"><span class="nav-number">7.3.</span> <span class="nav-text">死锁的检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%81%A2%E5%A4%8D"><span class="nav-number">7.4.</span> <span class="nav-text">死锁的恢复</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">8.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80%E4%B8%8E%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="nav-number">8.1.</span> <span class="nav-text">逻辑地址与物理地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%8D%95%E5%85%83MMU"><span class="nav-number">8.2.</span> <span class="nav-text">内存管理单元MMU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="nav-number">8.3.</span> <span class="nav-text">用户程序的运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">8.4.</span> <span class="nav-text">关注的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">8.5.</span> <span class="nav-text">连续内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A2%8E%E7%89%87"><span class="nav-number">8.5.1.</span> <span class="nav-text">碎片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">8.5.2.</span> <span class="nav-text">分区式存储管理的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">8.6.</span> <span class="nav-text">分页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B%E4%B8%ADOS%E4%B8%8ECPU%E7%9A%84%E5%88%86%E5%B7%A5"><span class="nav-number">8.6.1.</span> <span class="nav-text">地址变换过程中OS与CPU的分工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4"><span class="nav-number">8.6.2.</span> <span class="nav-text">内存保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%A1%B5"><span class="nav-number">8.6.3.</span> <span class="nav-text">共享页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E9%A1%B5%E8%A1%A8"><span class="nav-number">8.6.4.</span> <span class="nav-text">层次页表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash%E9%A1%B5%E8%A1%A8"><span class="nav-number">8.6.5.</span> <span class="nav-text">hash页表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E9%A1%B5%E8%A1%A8"><span class="nav-number">8.6.6.</span> <span class="nav-text">反向页表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%AE%B5"><span class="nav-number">8.7.</span> <span class="nav-text">分段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%AE%B5%E4%B8%8E%E5%88%86%E9%A1%B5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">8.8.</span> <span class="nav-text">分段与分页的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F"><span class="nav-number">8.9.</span> <span class="nav-text">段页式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">9.</span> <span class="nav-text">虚拟内存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">9.1.</span> <span class="nav-text">虚拟内存的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%9C%80%E8%B0%83%E9%A1%B5"><span class="nav-number">9.1.1.</span> <span class="nav-text">按需调页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">9.1.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E6%97%B6%E5%A4%8D%E5%88%B6"><span class="nav-number">9.1.3.</span> <span class="nav-text">写时复制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2"><span class="nav-number">9.2.</span> <span class="nav-text">页面置换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">9.2.1.</span> <span class="nav-text">页面置换算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2"><span class="nav-number">9.2.2.</span> <span class="nav-text">先进先出页面置换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E4%BC%98%E7%BD%AE%E6%8D%A2"><span class="nav-number">9.2.3.</span> <span class="nav-text">最优置换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8LRU"><span class="nav-number">9.2.4.</span> <span class="nav-text">最近最少使用LRU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%91%E4%BC%BCLRU%E9%A1%B5%E7%BD%AE%E6%8D%A2"><span class="nav-number">9.2.5.</span> <span class="nav-text">近似LRU页置换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%AE%A1%E6%95%B0%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-number">9.2.6.</span> <span class="nav-text">基于计数的算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E6%A1%86%E5%88%86%E9%85%8D"><span class="nav-number">9.3.</span> <span class="nav-text">页框分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%A2%A0%E7%B0%B8"><span class="nav-number">9.4.</span> <span class="nav-text">系统颠簸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6"><span class="nav-number">9.5.</span> <span class="nav-text">内存映射文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">9.6.</span> <span class="nav-text">内核内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E4%BA%8B%E6%83%85"><span class="nav-number">9.7.</span> <span class="nav-text">其他需要考虑的事情</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">10.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">10.1.</span> <span class="nav-text">文件的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">10.2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">10.3.</span> <span class="nav-text">挂载文件系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0"><span class="nav-number">11.</span> <span class="nav-text">文件系统实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">11.1.</span> <span class="nav-text">虚拟文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E5%AE%9E%E7%8E%B0"><span class="nav-number">11.2.</span> <span class="nav-text">目录实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">11.3.</span> <span class="nav-text">分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D"><span class="nav-number">11.3.1.</span> <span class="nav-text">连续分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%88%86%E9%85%8D"><span class="nav-number">11.3.2.</span> <span class="nav-text">链接分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D"><span class="nav-number">11.3.3.</span> <span class="nav-text">索引分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E9%97%B2%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86"><span class="nav-number">11.4.</span> <span class="nav-text">空闲空间管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E5%9B%BE"><span class="nav-number">11.4.1.</span> <span class="nav-text">位图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">11.4.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84group"><span class="nav-number">11.4.3.</span> <span class="nav-text">组group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting"><span class="nav-number">11.4.4.</span> <span class="nav-text">Counting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E7%8E%87%E5%92%8C%E6%80%A7%E8%83%BD"><span class="nav-number">11.5.</span> <span class="nav-text">效率和性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E5%AE%B9%E9%87%8F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">12.</span> <span class="nav-text">大容量存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BB%93%E6%9E%84"><span class="nav-number">12.1.</span> <span class="nav-text">磁盘结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.</span> <span class="nav-text">磁盘调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FCFS%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.1.</span> <span class="nav-text">FCFS调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSTF%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.2.</span> <span class="nav-text">SSTF调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCAN%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.3.</span> <span class="nav-text">SCAN调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-SCAN%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.4.</span> <span class="nav-text">C-SCAN调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOOK%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.5.</span> <span class="nav-text">LOOK调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">12.2.6.</span> <span class="nav-text">选择调度算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E9%94%99"><span class="nav-number">12.3.</span> <span class="nav-text">容错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8E%E7%BA%A7%E7%A3%81%E7%9B%98%E5%AE%B9%E9%94%99%E6%8A%80%E6%9C%AF"><span class="nav-number">12.3.1.</span> <span class="nav-text">低级磁盘容错技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E7%BA%A7%E7%A3%81%E7%9B%98%E5%AE%B9%E9%94%99%E6%8A%80%E6%9C%AF"><span class="nav-number">12.3.2.</span> <span class="nav-text">中级磁盘容错技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%A3%81%E7%9B%98%E5%AE%B9%E9%94%99%E6%8A%80%E6%9C%AF"><span class="nav-number">12.3.3.</span> <span class="nav-text">高级磁盘容错技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAID%E7%BB%93%E6%9E%84"><span class="nav-number">12.3.4.</span> <span class="nav-text">RAID结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-x2F-O%E7%B3%BB%E7%BB%9F"><span class="nav-number">13.</span> <span class="nav-text">I&#x2F;O系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8"><span class="nav-number">13.1.</span> <span class="nav-text">设备驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9EI-x2F-O"><span class="nav-number">13.2.</span> <span class="nav-text">阻塞和非阻塞I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache"><span class="nav-number">13.2.1.</span> <span class="nav-text">Cache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPOOLing%E6%8A%80%E6%9C%AF"><span class="nav-number">13.3.</span> <span class="nav-text">SPOOLing技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IO%E4%BF%9D%E6%8A%A4"><span class="nav-number">13.3.1.</span> <span class="nav-text">IO保护</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">13.4.</span> <span class="nav-text">设备独立性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%9D%E6%8A%A4"><span class="nav-number">14.</span> <span class="nav-text">保护</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%BF%9D%E6%8A%A4"><span class="nav-number">14.1.</span> <span class="nav-text">全局保护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">14.2.</span> <span class="nav-text">访问矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="nav-number">14.3.</span> <span class="nav-text">访问控制</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
+<h4 id="中断响应时机"><a href="#中断响应时机" class="headerlink" title="中断响应时机"></a>中断响应时机</h4><p>（1）中断状态从关到开； </p>
+<p>（2）Nachos 的 CPU 执行完一条应用程序指令； </p>
+<p>因为只有上述两种情况发生时，系统时钟才增量（Interrupt::OneTick()，对于第一 种情况，增 10 个 ticks，第二种情况增 1 个 ticks），这时 Nachos 中断控制器才检查是 否有中断到期，如果有，则响应之；</p>
+<h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>Nachos的进程在生命其中包括5个状态</p>
+<p>JUST_CREADT：刚new</p>
+<p>RUNNING：</p>
+<p>READY：</p>
+<p>BLOCKED：</p>
+<p>JUST_CREAT-&gt;READY</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ReadyToRun()</span><br></pre></td></tr></table></figure>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="一枚常指针"
-      src="/images/profile_photo.jpg">
-  <p class="site-author-name" itemprop="name">一枚常指针</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
+<p>BLOCKED-&gt;READY</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Semaphore::V()</span><br></pre></td></tr></table></figure>
 
+<p>RUNNING-&gt;READY</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Thread::Yield()</span><br></pre></td></tr></table></figure>
 
 
-      </div>
 
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+<p>RUNNING-&gt;BOLOCKED</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Thread::Sleep()</span><br></pre></td></tr></table></figure>
 
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
 
-        
 
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">一枚常指针</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
+<h2 id="实验一-Nachos系统的安装与调试"><a href="#实验一-Nachos系统的安装与调试" class="headerlink" title="实验一 Nachos系统的安装与调试"></a>实验一 Nachos系统的安装与调试</h2><h3 id="安装nachos"><a href="#安装nachos" class="headerlink" title="安装nachos"></a>安装nachos</h3><p>根据指导书操作</p>
+<p>最终结果</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png" alt="image-20220312173117116"></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>（1）在你所生成的 Nachos 系统中，下述函数的地址是多少？并说明找到这些函<br>数地址的过程及方法。<br>i. InterruptEnable()<br>ii. SimpleThread()<br>iii. ThreadFinish()<br>iv. ThreadRoot()</p>
+<p>（2）下述线程对象的地址是多少？并说明找到这些对象地址的过程及方法。<br>i. the main thread of the Nachos<br>ii. the forked thread created by the main thread</p>
+<p>（3）当主线程第一次运行 SWITCH()函数，执行到函数 SWITCH()的最后一条指<br>令 ret 时，CPU 返回的地址是多少？ 该地址对应程序的什么位置？</p>
+<p>（4）当调用 Fork()新建的线程首次运行 SWITCH()函数时，当执行到函数<br>SWITCH()的最后一条指令 ret 时，CPU 返回的地址是多少？ 该地址对应程序的什么<br>位置？</p>
+<h3 id="查询函数地址"><a href="#查询函数地址" class="headerlink" title="查询函数地址"></a>查询函数地址</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) b InterruptEnable</span><br><span class="line">Breakpoint 1 at 0x3027: file thread.cc, line 242.</span><br><span class="line">(gdb) b SimpleThread</span><br><span class="line">Breakpoint 2 at 0x3275: file threadtest.cc, line 26.</span><br><span class="line">(gdb) b ThreadFinish</span><br><span class="line">Breakpoint 3 at 0x2ffc: file thread.cc, line 241.</span><br><span class="line">(gdb) b ThreadRoot</span><br><span class="line">Breakpoint 4 at 0x4e7c</span><br></pre></td></tr></table></figure>
+
+
 
-        
+<h3 id="查询对象地址"><a href="#查询对象地址" class="headerlink" title="查询对象地址"></a>查询对象地址</h3><p>主线程对象的地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) p currentThread</span><br><span class="line">$1 = (Thread *) 0x56563ca0</span><br></pre></td></tr></table></figure>
+
+
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-</html>
+<p>主线程 fork的线程地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">42	ThreadTest()</span><br><span class="line">43	&#123;</span><br><span class="line">44	    DEBUG(&#x27;t&#x27;, &quot;Entering SimpleTest&quot;);</span><br><span class="line">45	</span><br><span class="line">46	    Thread *t = new Thread(&quot;forked thread&quot;);</span><br><span class="line">47	</span><br><span class="line">(gdb) l</span><br><span class="line">48	    t-&gt;Fork(SimpleThread, 1);</span><br><span class="line">49	    SimpleThread(0);</span><br><span class="line">50	&#125;</span><br><span class="line">51	</span><br><span class="line">(gdb) b 48</span><br><span class="line">Breakpoint 9 at 0x56558327: file threadtest.cc, line 48.</span><br><span class="line">(gdb) print *t</span><br><span class="line">$2 = &#123;stackTop = 0x8e30, machineState = &#123;0, 0, -137625168, -135911936, </span><br><span class="line">    -137581328, -137541952, -137580576, -137789584, -137623792, -137623952, </span><br><span class="line">    -138281536, -135921024, -137160944, -135911792, -138496512, -138170064, </span><br><span class="line">    -138392816, -137958928&#125;, stack = 0xf7e60250 &lt;operator delete(void*)&gt;, </span><br><span class="line">  status = 4156468720, </span><br><span class="line">  name = 0xf7c01220 &lt;ssignal&gt; &quot;\363\017\036\373S\213D$\b\350K&quot;&#125;</span><br><span class="line">(gdb) p t</span><br><span class="line">$3 = (Thread *) 0x5655df40</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查询SWITCH函数返回地址"><a href="#查询SWITCH函数返回地址" class="headerlink" title="查询SWITCH函数返回地址"></a>查询SWITCH函数返回地址</h3><p>SWITCH汇编代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) disass SWITCH</span><br><span class="line">Dump of assembler code for function SWITCH:</span><br><span class="line">=&gt; 0x56559e86 &lt;+0&gt;:	mov    %eax,0x5655e054</span><br><span class="line">   0x56559e8b &lt;+5&gt;:	mov    0x4(%esp),%eax</span><br><span class="line">   0x56559e8f &lt;+9&gt;:	mov    %ebx,0x8(%eax)</span><br><span class="line">   0x56559e92 &lt;+12&gt;:	mov    %ecx,0xc(%eax)</span><br><span class="line">   0x56559e95 &lt;+15&gt;:	mov    %edx,0x10(%eax)</span><br><span class="line">   0x56559e98 &lt;+18&gt;:	mov    %esi,0x18(%eax)</span><br><span class="line">   0x56559e9b &lt;+21&gt;:	mov    %edi,0x1c(%eax)</span><br><span class="line">   0x56559e9e &lt;+24&gt;:	mov    %ebp,0x14(%eax)</span><br><span class="line">   0x56559ea1 &lt;+27&gt;:	mov    %esp,(%eax)</span><br><span class="line">   0x56559ea3 &lt;+29&gt;:	mov    0x5655e054,%ebx</span><br><span class="line">   0x56559ea9 &lt;+35&gt;:	mov    %ebx,0x4(%eax)</span><br><span class="line">   0x56559eac &lt;+38&gt;:	mov    (%esp),%ebx</span><br><span class="line">   0x56559eaf &lt;+41&gt;:	mov    %ebx,0x20(%eax)</span><br><span class="line">   0x56559eb2 &lt;+44&gt;:	mov    0x8(%esp),%eax</span><br><span class="line">   0x56559eb6 &lt;+48&gt;:	mov    0x4(%eax),%ebx</span><br><span class="line">   0x56559eb9 &lt;+51&gt;:	mov    %ebx,0x5655e054</span><br><span class="line">   0x56559ebf &lt;+57&gt;:	mov    0x8(%eax),%ebx</span><br><span class="line">   0x56559ec2 &lt;+60&gt;:	mov    0xc(%eax),%ecx</span><br><span class="line">   0x56559ec5 &lt;+63&gt;:	mov    0x10(%eax),%edx</span><br><span class="line">   0x56559ec8 &lt;+66&gt;:	mov    0x18(%eax),%esi</span><br><span class="line">   0x56559ecb &lt;+69&gt;:	mov    0x1c(%eax),%edi</span><br><span class="line">   0x56559ece &lt;+72&gt;:	mov    0x14(%eax),%ebp</span><br><span class="line">--Type &lt;RET&gt; for more, q to quit, c to continue without paging--ret</span><br><span class="line">   0x56559ed1 &lt;+75&gt;:	mov    (%eax),%esp</span><br><span class="line">   0x56559ed3 &lt;+77&gt;:	mov    0x20(%eax),%eax</span><br><span class="line">   0x56559ed6 &lt;+80&gt;:	mov    %eax,(%esp)</span><br><span class="line">   0x56559ed9 &lt;+83&gt;:	mov    0x5655e054,%eax</span><br><span class="line">   0x56559ede &lt;+88&gt;:	ret    </span><br><span class="line">   0x56559edf &lt;+89&gt;:	nop</span><br><span class="line">End of assembler dump.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>eax中存储着新旧线程地址</p>
+<p>在&lt;5&gt;之后查看寄存器内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) ni</span><br><span class="line">0x56559e8f in SWITCH ()</span><br><span class="line">(gdb) info r</span><br><span class="line">eax            0x56563ca0          1448492192</span><br><span class="line">ecx            0xc                 12</span><br><span class="line">edx            0x9                 9</span><br><span class="line">ebx            0x5655df40          1448468288</span><br><span class="line">esp            0xffffce6c          0xffffce6c</span><br><span class="line">ebp            0xffffce98          0xffffce98</span><br><span class="line">esi            0x5655a2e3          1448452835</span><br><span class="line">edi            0x56563d00          1448492288</span><br><span class="line">eip            0x56559e8f          0x56559e8f &lt;SWITCH+9&gt;</span><br><span class="line">eflags         0x296               [ PF AF SF IF ]</span><br><span class="line">cs             0x23                35</span><br><span class="line">ss             0x2b                43</span><br><span class="line">ds             0x2b                43</span><br><span class="line">es             0x2b                43</span><br><span class="line">fs             0x0                 0</span><br><span class="line">gs             0x63                99</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>在&lt;44&gt;之后查看寄存器信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) ni</span><br><span class="line">0x56559eb6 in SWITCH ()</span><br><span class="line">(gdb) info r</span><br><span class="line">eax            0x56563d00          1448492288</span><br><span class="line">ecx            0xc                 12</span><br><span class="line">edx            0x9                 9</span><br><span class="line">ebx            0x56556a26          1448438310</span><br><span class="line">esp            0xffffce6c          0xffffce6c</span><br><span class="line">ebp            0xffffce98          0xffffce98</span><br><span class="line">esi            0x5655a2e3          1448452835</span><br><span class="line">edi            0x56563d00          1448492288</span><br><span class="line">eip            0x56559eb6          0x56559eb6 &lt;SWITCH+48&gt;</span><br><span class="line">eflags         0x296               [ PF AF SF IF ]</span><br><span class="line">cs             0x23                35</span><br><span class="line">ss             0x2b                43</span><br><span class="line">ds             0x2b                43</span><br><span class="line">es             0x2b                43</span><br><span class="line">fs             0x0                 0</span><br><span class="line">gs             0x63                99</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&lt;77&gt;行后查看寄存器信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) ni</span><br><span class="line">0x56559ed6 in SWITCH ()</span><br><span class="line">(gdb) info r</span><br><span class="line">eax            0x56559e78          1448451704</span><br><span class="line">ecx            0x56558027          1448443943</span><br><span class="line">edx            0x1                 1</span><br><span class="line">ebx            0x0                 0</span><br><span class="line">esp            0x56568d50          0x56568d50</span><br><span class="line">ebp            0x0                 0x0</span><br><span class="line">esi            0x56558275          1448444533</span><br><span class="line">edi            0x56557ffc          1448443900</span><br><span class="line">eip            0x56559ed6          0x56559ed6 &lt;SWITCH+80&gt;</span><br><span class="line">eflags         0x296               [ PF AF SF IF ]</span><br><span class="line">cs             0x23                35</span><br><span class="line">ss             0x2b                43</span><br><span class="line">ds             0x2b                43</span><br><span class="line">es             0x2b                43</span><br><span class="line">fs             0x0                 0</span><br><span class="line">gs             0x63                99</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在&lt;88&gt;后查看下一条指令执行的地址，与&lt;77&gt;中eax存储的地址相同</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) ni</span><br><span class="line">0x56559e78 in ThreadRoot ()</span><br></pre></td></tr></table></figure>
+
+<p>该地址为函数ThreadRoot的第一条汇编指令地址</p>
+<h3 id="Fork后运行SWICH的返回地址"><a href="#Fork后运行SWICH的返回地址" class="headerlink" title="Fork后运行SWICH的返回地址"></a>Fork后运行SWICH的返回地址</h3><p>输入c后继续运行，查看第二次switch函数的返回地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x56559ede in SWITCH ()</span><br><span class="line">(gdb) ni</span><br><span class="line">0x56556a26 in Scheduler::Run (this=0x56563c80, nextThread=0x56563d00)</span><br><span class="line">    at scheduler.cc:116</span><br><span class="line">116	    SWITCH(oldThread, nextThread);</span><br><span class="line">(gdb) l</span><br><span class="line">111	    // This is a machine-dependent assembly language routine defined </span><br><span class="line">112	    // in switch.s.  You may have to think</span><br><span class="line">113	    // a bit to figure out what happens after this, both from the point</span><br><span class="line">114	    // of view of the thread and from the perspective of the &quot;outside world&quot;.</span><br><span class="line">115	</span><br><span class="line">116	    SWITCH(oldThread, nextThread);</span><br><span class="line">117	    </span><br><span class="line">118	    DEBUG(&#x27;t&#x27;, &quot;Now in thread \&quot;%s\&quot;\n&quot;, currentThread-&gt;getName());</span><br><span class="line">119	</span><br><span class="line">120	    // If the old thread gave up the processor because it was finishing,</span><br><span class="line">(gdb) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>查看run的汇编代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">disass Run</span><br><span class="line">Dump of assembler code for function Scheduler::Run(Thread*):</span><br><span class="line">   0x56556996 &lt;+0&gt;:	endbr32 </span><br><span class="line">   0x5655699a &lt;+4&gt;:	push   %ebp</span><br><span class="line">   0x5655699b &lt;+5&gt;:	mov    %esp,%ebp</span><br><span class="line">   0x5655699d &lt;+7&gt;:	push   %esi</span><br><span class="line">   0x5655699e &lt;+8&gt;:	push   %ebx</span><br><span class="line">   0x5655699f &lt;+9&gt;:	sub    $0x10,%esp</span><br><span class="line">   0x565569a2 &lt;+12&gt;:	call   0x565562f0 &lt;__x86.get_pc_thunk.bx&gt;</span><br><span class="line">   0x565569a7 &lt;+17&gt;:	add    $0x7599,%ebx</span><br><span class="line">   0x565569ad &lt;+23&gt;:	lea    0xf4(%ebx),%eax</span><br><span class="line">   0x565569b3 &lt;+29&gt;:	mov    (%eax),%eax</span><br><span class="line">   0x565569b5 &lt;+31&gt;:	mov    %eax,-0xc(%ebp)</span><br><span class="line">   0x565569b8 &lt;+34&gt;:	sub    $0xc,%esp</span><br><span class="line">   0x565569bb &lt;+37&gt;:	pushl  -0xc(%ebp)</span><br><span class="line">   0x565569be &lt;+40&gt;:	call   0x56557c8c &lt;Thread::CheckOverflow()&gt;</span><br><span class="line">   0x565569c3 &lt;+45&gt;:	add    $0x10,%esp</span><br><span class="line">   0x565569c6 &lt;+48&gt;:	lea    0xf4(%ebx),%eax</span><br><span class="line">   0x565569cc &lt;+54&gt;:	mov    0xc(%ebp),%edx</span><br><span class="line">   0x565569cf &lt;+57&gt;:	mov    %edx,(%eax)</span><br><span class="line">   0x565569d1 &lt;+59&gt;:	lea    0xf4(%ebx),%eax</span><br><span class="line">   0x565569d7 &lt;+65&gt;:	mov    (%eax),%eax</span><br><span class="line">   0x565569d9 &lt;+67&gt;:	sub    $0x8,%esp</span><br><span class="line">   0x565569dc &lt;+70&gt;:	push   $0x1</span><br><span class="line">--Type &lt;RET&gt; for more, q to quit, c to continue without paging--ret</span><br><span class="line">   0x565569de &lt;+72&gt;:	push   %eax</span><br><span class="line">   0x565569df &lt;+73&gt;:	call   0x56556ade &lt;Thread::setStatus(ThreadStatus)&gt;</span><br><span class="line">   0x565569e4 &lt;+78&gt;:	add    $0x10,%esp</span><br><span class="line">   0x565569e7 &lt;+81&gt;:	sub    $0xc,%esp</span><br><span class="line">   0x565569ea &lt;+84&gt;:	pushl  0xc(%ebp)</span><br><span class="line">   0x565569ed &lt;+87&gt;:	call   0x56556afc &lt;Thread::getName()&gt;</span><br><span class="line">   0x565569f2 &lt;+92&gt;:	add    $0x10,%esp</span><br><span class="line">   0x565569f5 &lt;+95&gt;:	mov    %eax,%esi</span><br><span class="line">   0x565569f7 &lt;+97&gt;:	sub    $0xc,%esp</span><br><span class="line">   0x565569fa &lt;+100&gt;:	pushl  -0xc(%ebp)</span><br><span class="line">   0x565569fd &lt;+103&gt;:	call   0x56556afc &lt;Thread::getName()&gt;</span><br><span class="line">   0x56556a02 &lt;+108&gt;:	add    $0x10,%esp</span><br><span class="line">   0x56556a05 &lt;+111&gt;:	push   %esi</span><br><span class="line">   0x56556a06 &lt;+112&gt;:	push   %eax</span><br><span class="line">   0x56556a07 &lt;+113&gt;:	lea    -0x3e7c(%ebx),%eax</span><br><span class="line">   0x56556a0d &lt;+119&gt;:	push   %eax</span><br><span class="line">   0x56556a0e &lt;+120&gt;:	push   $0x74</span><br><span class="line">   0x56556a10 &lt;+122&gt;:	call   0x565581e8 &lt;DEBUG(char, char const*, ...)&gt;</span><br><span class="line">   0x56556a15 &lt;+127&gt;:	add    $0x10,%esp</span><br><span class="line">   0x56556a18 &lt;+130&gt;:	sub    $0x8,%esp</span><br><span class="line">   0x56556a1b &lt;+133&gt;:	pushl  0xc(%ebp)</span><br><span class="line">   0x56556a1e &lt;+136&gt;:	pushl  -0xc(%ebp)</span><br><span class="line">   0x56556a21 &lt;+139&gt;:	call   0x56559e86 &lt;SWITCH&gt;</span><br><span class="line">--Type &lt;RET&gt; for more, q to quit, c to continue without paging--ret</span><br><span class="line">=&gt; 0x56556a26 &lt;+144&gt;:	add    $0x10,%esp</span><br><span class="line">   0x56556a29 &lt;+147&gt;:	lea    0xf4(%ebx),%eax</span><br><span class="line">   0x56556a2f &lt;+153&gt;:	mov    (%eax),%eax</span><br><span class="line">   0x56556a31 &lt;+155&gt;:	sub    $0xc,%esp</span><br><span class="line">   0x56556a34 &lt;+158&gt;:	push   %eax</span><br><span class="line">   0x56556a35 &lt;+159&gt;:	call   0x56556afc &lt;Thread::getName()&gt;</span><br><span class="line">   0x56556a3a &lt;+164&gt;:	add    $0x10,%esp</span><br><span class="line">   0x56556a3d &lt;+167&gt;:	sub    $0x4,%esp</span><br><span class="line">   0x56556a40 &lt;+170&gt;:	push   %eax</span><br><span class="line">   0x56556a41 &lt;+171&gt;:	lea    -0x3e51(%ebx),%eax</span><br><span class="line">   0x56556a47 &lt;+177&gt;:	push   %eax</span><br><span class="line">   0x56556a48 &lt;+178&gt;:	push   $0x74</span><br><span class="line">   0x56556a4a &lt;+180&gt;:	call   0x565581e8 &lt;DEBUG(char, char const*, ...)&gt;</span><br><span class="line">   0x56556a4f &lt;+185&gt;:	add    $0x10,%esp</span><br><span class="line">   0x56556a52 &lt;+188&gt;:	lea    0xf8(%ebx),%eax</span><br><span class="line">   0x56556a58 &lt;+194&gt;:	mov    (%eax),%eax</span><br><span class="line">   0x56556a5a &lt;+196&gt;:	test   %eax,%eax</span><br><span class="line">   0x56556a5c &lt;+198&gt;:	je     0x56556a90 &lt;Scheduler::Run(Thread*)+250&gt;</span><br><span class="line">   0x56556a5e &lt;+200&gt;:	lea    0xf8(%ebx),%eax</span><br><span class="line">   0x56556a64 &lt;+206&gt;:	mov    (%eax),%esi</span><br><span class="line">   0x56556a66 &lt;+208&gt;:	test   %esi,%esi</span><br><span class="line">   0x56556a68 &lt;+210&gt;:	je     0x56556a84 &lt;Scheduler::Run(Thread*)+238&gt;</span><br><span class="line">   0x56556a6a &lt;+212&gt;:	sub    $0xc,%esp</span><br><span class="line">--Type &lt;RET&gt; for more, q to quit, c to continue without paging--</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>发现返回地址对应于run中调用函数SWITCH后紧跟着的一条指令</p>
+<p>重复上述过程发现，SWITCH返回地址均与第二次运行后结果相同</p>
+<p>通过阅读源码可知</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void</span><br><span class="line">SimpleThread(_int which)</span><br><span class="line">&#123;</span><br><span class="line">    int num;</span><br><span class="line">    </span><br><span class="line">    for (num = 0; num &lt; 5; num++) &#123;</span><br><span class="line">	printf(&quot;*** thread %d looped %d times\n&quot;, (int) which, num);</span><br><span class="line">        currentThread-&gt;Yield();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SWITCH函数用于交替执行这个函数</p>
+<p>子线程第一次返回时，返回进入函数头部</p>
+<p>之后交替执行</p>
+<h2 id="实验二-Nachos的MAKEFILES"><a href="#实验二-Nachos的MAKEFILES" class="headerlink" title="实验二 Nachos的MAKEFILES"></a>实验二 Nachos的MAKEFILES</h2><p>目的与任务<br>该实验在目录 lab2 中完成。<br>（1）熟悉 Nachos 的 makefiles 的结构；<br>（2）熟悉如何在几个 lab 文件目录中构造相应的 Nachos 系统；</p>
+<h3 id="学习总结"><a href="#学习总结" class="headerlink" title="学习总结"></a>学习总结</h3><ol>
+<li><p>code&#x2F;下子目录中的Makefile文件主要内容</p>
+<ul>
+<li><p>include Makefile.local</p>
+</li>
+<li><p>include ..&#x2F;Makefile.common</p>
+<p>将父目录下的 Makefile.common 包含了进来</p>
+</li>
+</ul>
+</li>
+<li><p>makefile.local文件</p>
+<ul>
+<li>主要作用：对一些编译、链接及运行时所使用的宏进行定义</li>
+<li>CCFILES：指明在该目录下生成Nachos时所涉及到的C++源文件</li>
+<li>INCPATH：指明所涉及的C++源程序中的头文件（.h文件）所在路径</li>
+<li>DEFINES：传递g++的一些标号或宏</li>
+</ul>
+</li>
+<li><p>Makefile.dep文件</p>
+<ul>
+<li>获取操作平台</li>
+<li>给出gcc mips交叉编译器所在的路径及前缀</li>
+<li>arch文件下三个文件夹分别存放<ul>
+<li>可执行文件（nachos）</li>
+<li>依赖文件（dependence files，如xxxx.d）</li>
+<li>目标文件（object files，如xxx.o）</li>
+</ul>
+</li>
+<li>code&#x2F;子目录下生成可执行文件的链接文件</li>
+</ul>
+</li>
+<li><p>Makfile.common文件，定义了编译链接生成一个完整的Nachos可执行文件所需要的所有规则</p>
+</li>
+</ol>
+<h4 id="在其他目录中修改Nachos代码并生成系统"><a href="#在其他目录中修改Nachos代码并生成系统" class="headerlink" title="在其他目录中修改Nachos代码并生成系统"></a>在其他目录中修改Nachos代码并生成系统</h4><p>lab1和lab2在code&#x2F;thread下完成</p>
+<p>lab3在code&#x2F;monitor下完成</p>
+<p>lab4和lab5在code&#x2F;filesys下完成</p>
+<p>lab、lab7和lab8在code&#x2F;userprog下完成</p>
+<h4 id="修改INPATH"><a href="#修改INPATH" class="headerlink" title="修改INPATH"></a>修改INPATH</h4><p>如若不修改INPATH</p>
+<p>若修改xxxx.h文件，重新编译后只有同文件夹下的xxxx.cc文件会关联</p>
+<p>其他文件中的头文件若包含xxxx.h文件，会优先寻找本文件夹下的xxxx.h文件</p>
+<p>然后从 -I..&#x2F;threads -I..&#x2F;machine  两个文件夹下寻找</p>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INCPATH += -I../&lt;文件夹名&gt; -I../threads -I../machine</span><br></pre></td></tr></table></figure>
+
+<p>找不到文件就从该路径左至右寻找。</p>
+<p>但该方法仍会导致只有目录lab2下的scheduler.cc使用lab2下的scheduler.h，其他目录中的.cc源文件仍然使用目录..&#x2F;threads下的scheduler.h</p>
+<h4 id="寻找包含修改的-h文件的最小文件集"><a href="#寻找包含修改的-h文件的最小文件集" class="headerlink" title="寻找包含修改的.h文件的最小文件集"></a>寻找包含修改的.h文件的最小文件集</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">grep scheduler.h *</span><br><span class="line">Grep选项：</span><br><span class="line">* : 表示当前目录所有文件，也可以是某个文件名</span><br><span class="line">-r 是递归查找</span><br><span class="line">-n 是显示行号</span><br><span class="line">-R 查找所有文件包含子目录</span><br><span class="line">-i 忽略大小写</span><br></pre></td></tr></table></figure>
+
+<p>可以检查哪些文件中包含字符串</p>
+<p>查找出包含修改后的.h文件的所有文件放入新建的文件夹中</p>
+<p>使用touch命令更新所修改的的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1．命令格式：</span><br><span class="line">touch [选项]... 文件...</span><br><span class="line">2．命令参数：</span><br><span class="line">-a   或--time=atime或--time=access或--time=use 　只更改存取时间。</span><br><span class="line">-c   或--no-create 　不建立任何文档。</span><br><span class="line">-d 　使用指定的日期时间，而非现在的时间。</span><br><span class="line">-f 　此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题。</span><br><span class="line">-m   或--time=mtime或--time=modify 　只更改变动时间。</span><br><span class="line">-r 　把指定文档或目录的日期时间，统统设成和参考文档或目录的日期时间相同。</span><br><span class="line">-t 　使用指定的日期时间，而非现在的时间。</span><br><span class="line">3．命令功能：</span><br><span class="line">touch命令参数可更改文档或目录的日期时间，包括存取时间和更改时间。 </span><br></pre></td></tr></table></figure>
+
+<p>make</p>
+<p>再touch未修改的其他文件目录下的原文件</p>
+<p>重新make，观察nachos是否会被更新</p>
+<h2 id="实验三-利用信号量实现线程同步"><a href="#实验三-利用信号量实现线程同步" class="headerlink" title="实验三 利用信号量实现线程同步"></a>实验三 利用信号量实现线程同步</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>（1）进一步理解 Nachos 中如何创建线程； </p>
+<p>（2）理解 Nachos 中信号量与 P、V 操作是如何实现的 </p>
+<p>（3）如何创建与使用 Nachos 的信号量 </p>
+<p>（4）理解 Nachos 中是如何利用信号量实现 producer&#x2F;consumer problem；</p>
+<p>（5）理解 Nachos 中如何测试与调试程序； </p>
+<p>（6）理解 Nachos 中轮转法（RR）线程调度的实现；</p>
+<h3 id="设计步骤与要求"><a href="#设计步骤与要求" class="headerlink" title="设计步骤与要求"></a>设计步骤与要求</h3><ol>
+<li><p>在 code&#x2F;lab3 目录中， </p>
+<ul>
+<li>详细阅读并深刻理解 ring.h 及 ring.cc 中的所有代码； </li>
+<li>阅读并理解 main.cc 的功能；</li>
+<li>详细阅读并深刻理解 prodcons++.cc 的程序结构，在 prodcons++.cc 中添加或 修改相应的代码，满足设计要求。（可依据其中的注释添加相应的代码） </li>
+<li>利用 make 编译生成新的 Nachos，并测试其功能是否满足设计要求；</li>
+</ul>
+</li>
+<li><p>分析..&#x2F;threads&#x2F;threadtest.cc，理解利用 Thread::Fork()创建线程的方法； </p>
+<p>分析 Thread::Fork() ，理解内核创建线程的过程</p>
+<p>分析..&#x2F;threads&#x2F;synch.cc，理解 Nachos 中信号量是如何实现的； </p>
+<p>分析..&#x2F;monitor&#x2F;prodcons++.cc，理解信号量的创建与使用方法； </p>
+<p>分析 Thread::Fork() , Thread::Yiled(), Thread::Sleep(), Thread::Finish() ,, Scheduler::  Scheduler::ReadyToRun(), Scheduler::FindNextToRun(), Scheduler::Run()等相关函数，理解线程调度及上下文切换的工作过程；</p>
+</li>
+<li><p>在理解上述 Nachos 工作机理的基础上，补充或修改目录 lab3 中 prodcons++.cc 中的代码，利用 Nachos 实现的线程与信号量机制完善一个 producer&#x2F;consumer problem 测试程序。 </p>
+</li>
+<li><p>根据生产者&#x2F;消费者问题的功能定义，你的实现应该满足如下条件:</p>
+</li>
+</ol>
+<ul>
+<li>生产者线程所产生的所有的消息，都应该被消费者接收并保存到输出文件 中（tem_0，temp_1，…） </li>
+<li>每个消息只能被接收一次且在文件保存一次 </li>
+<li>来自于同一个生产者的消息，以及被同一个消费者接收到的消息，在文件保存的顺序应该按其序号升序排列；</li>
+</ul>
+<h3 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define BUFF_SIZE 3  // the size of the round buffer</span><br><span class="line">#define N_PROD    2  // the number of producers </span><br><span class="line">#define N_CONS    2  // the number of consumers</span><br><span class="line">#define N_MESSG   4  // the number of messages produced by each producer</span><br></pre></td></tr></table></figure>
+
+<p>阅读代码可得</p>
+<ul>
+<li>缓冲区大小为：3</li>
+<li>生产者个数：2</li>
+<li>消费者个数：2</li>
+<li>每个生产者发送信息数：4</li>
+</ul>
+<h4 id="理解信号量的实现"><a href="#理解信号量的实现" class="headerlink" title="理解信号量的实现"></a>理解信号量的实现</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Semaphore &#123;</span><br><span class="line">  public:</span><br><span class="line">    Semaphore(char* debugName, int initialValue);	// 设置初值</span><br><span class="line">    ~Semaphore();   					// de-allocate semaphore</span><br><span class="line">    char* getName() &#123; return name;&#125;			// debugging assist</span><br><span class="line">    </span><br><span class="line">    void P();	 // 判断value是否大于0，否则加入queue队尾，睡眠当前线程</span><br><span class="line">    void V();	 // 返回队首线程，并设置状态为ready</span><br><span class="line">    </span><br><span class="line">  private:</span><br><span class="line">    char* name;        // debug的名字</span><br><span class="line">    int value;         // 信号量的值</span><br><span class="line">    List *queue;       // value为0时的等待队列</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>信号量的实现</p>
+<p>关键操作为P、V操作</p>
+<ul>
+<li>P()的实现<ul>
+<li>判断value是否为0</li>
+<li>若为0，则将当前线程加入queue队尾，并调用sleep函数睡眠</li>
+<li>不为0，value–</li>
+</ul>
+</li>
+<li>v()的实现<ul>
+<li>从queue队首拿出一个线程</li>
+<li>若线程不为空，将其状态设置为READY</li>
+<li>value++</li>
+</ul>
+</li>
+</ul>
+<h4 id="修改prodcons-cc的程序"><a href="#修改prodcons-cc的程序" class="headerlink" title="修改prodcons++.cc的程序"></a>修改prodcons++.cc的程序</h4><ul>
+<li><p>参照monitor文件下prodcons++.cc文件的内容</p>
+</li>
+<li><p>根据生产者消费者模型</p>
+</li>
+</ul>
+<p>修改程序如下（简要显示）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nempty = new Semaphore(&quot;nempty&quot;,BUFF_SIZE);</span><br><span class="line">nfull = new Semaphore(&quot;nfull&quot;,0);</span><br><span class="line">mutex = new Semaphore(&quot;mutex&quot;,1);</span><br><span class="line">    </span><br><span class="line">ring = new Ring(BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">producer &#123;</span><br><span class="line">    for (num = 0; num &lt; N_MESSG ; num++) &#123;</span><br><span class="line">    </span><br><span class="line">      message-&gt;thread_id = which;</span><br><span class="line">      message-&gt;value = num;</span><br><span class="line">      </span><br><span class="line">      nempty-&gt;P();</span><br><span class="line">      mutex-&gt;P();</span><br><span class="line"></span><br><span class="line">      ring-&gt;Put(message);</span><br><span class="line">      printf(&quot;producer %d produce thread %d ---&gt; valude d\n&quot;,which,which,num);</span><br><span class="line"></span><br><span class="line">      mutex-&gt;V();</span><br><span class="line">      nfull-&gt;V();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">consumer &#123;</span><br><span class="line">    for (; ; ) &#123;</span><br><span class="line"></span><br><span class="line">      nfull-&gt;P();</span><br><span class="line">      mutex-&gt;P();</span><br><span class="line"></span><br><span class="line">      ring-&gt;Get(message);</span><br><span class="line">      printf(&quot;consumer %d get thread %d ---&gt; value %d\n&quot;,which,message-&gt;thread_id,message-&gt;value);</span><br><span class="line"></span><br><span class="line">      mutex-&gt;V();</span><br><span class="line">      nempty-&gt;V();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改文件</p>
+<p>可得实验结果</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png" alt="image-20220312220345657"></p>
+<h4 id="分析并理解，Thread-Fork-创建线程的方法"><a href="#分析并理解，Thread-Fork-创建线程的方法" class="headerlink" title="分析并理解，Thread::Fork()创建线程的方法"></a>分析并理解，Thread::Fork()创建线程的方法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Thread::Fork(VoidFunctionPtr func, _int arg)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Forking thread \&quot;%s\&quot; with func = 0x%x, arg = %d\n&quot;,  name, (int) func, arg);//设置debug信息</span><br><span class="line">    </span><br><span class="line">    StackAllocate(func, arg);//为线程分配栈</span><br><span class="line"></span><br><span class="line">    IntStatus oldLevel = interrupt-&gt;SetLevel(IntOff);//关中断</span><br><span class="line">    scheduler-&gt;ReadyToRun(this);	// 将线程状态设置为ready并加入就绪队列</span><br><span class="line">    </span><br><span class="line">    (void) interrupt-&gt;SetLevel(oldLevel);//开中断</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+<p>fork()</p>
+<p>新建一个线程并设置状态为ready（放入准备就绪队列）</p>
+<p>StackAllocate(func, arg);&#x2F;&#x2F;为线程分配栈</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">machineState[PCState] = (_int) ThreadRoot;//函数入口</span><br><span class="line">   machineState[StartupPCState] = (_int) InterruptEnable;</span><br><span class="line">   machineState[InitialPCState] = (_int) func;//函数运行体</span><br><span class="line">   machineState[InitialArgState] = arg;</span><br><span class="line">   machineState[WhenDonePCState] = (_int) ThreadFinish;//函数结束出口</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其他Thread和scheduler的函数分析请见备注</p>
+<h4 id="rs轮转调度"><a href="#rs轮转调度" class="headerlink" title="-rs轮转调度"></a>-rs轮转调度</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">else if (!strcmp(*argv, &quot;-rs&quot;)) &#123;</span><br><span class="line">	    ASSERT(argc &gt; 1);</span><br><span class="line">	    RandomInit(atoi(*(argv + 1)));	// initialize pseudo-random</span><br><span class="line">						// number generator</span><br><span class="line">	    randomYield = TRUE;</span><br><span class="line">	    argCount = 2;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>-rs后可跟数字，作为随机数初始化种子</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png" alt="image-20220313005518934"></p>
+<p>可以看到与上次运行结果确实不同，在producer0产生的消息未填满缓冲区时就发生了调度</p>
+<p>通过阅读Interrupt的源码可知，nachos中断响应的时机</p>
+<ul>
+<li>中断状态从关到开</li>
+<li>Nachos的CPU执行完一条应用程序指令</li>
+</ul>
+<p>上述两种情况发生时，系统时钟调用Interrupt::OneTick()。</p>
+<p>同时检查是否有中断到期，有则响应</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (yieldOnReturn) &#123;		// if the timer device handler asked </span><br><span class="line">					// for a context switch, ok to do it now</span><br><span class="line">	yieldOnReturn = FALSE;</span><br><span class="line"> 	status = SystemMode;		// yield is a kernel routine</span><br><span class="line">	currentThread-&gt;Yield();</span><br><span class="line">	status = old;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时发生程序调度，当前进程转为READY状态，运行下一个就绪进程</p>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><h4 id="C语言函数"><a href="#C语言函数" class="headerlink" title="C语言函数"></a>C语言函数</h4><p>sprintf</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int sprintf(char *str, const char *format, ...) </span><br><span class="line">发送格式化输出到 str 所指向的字符串</span><br></pre></td></tr></table></figure>
+
+<p>实例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   char str[80];</span><br><span class="line"></span><br><span class="line">   sprintf(str, &quot;Pi 的值 = %f&quot;, M_PI);</span><br><span class="line">   puts(str);</span><br><span class="line">   </span><br><span class="line">   return(0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Pi 的值 = 3.141593</span><br></pre></td></tr></table></figure>
+
+
+
+<p>atoi</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int atoi(const char *str)</span><br></pre></td></tr></table></figure>
+
+<p>把参数 <strong>str</strong> 所指向的字符串转换为一个整数（类型为 int 型）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   int val;</span><br><span class="line">   char str[20];</span><br><span class="line">   </span><br><span class="line">   strcpy(str, &quot;98993489&quot;);</span><br><span class="line">   val = atoi(str);</span><br><span class="line">   printf(&quot;字符串值 = %s, 整型值 = %d\n&quot;, str, val);</span><br><span class="line"></span><br><span class="line">   strcpy(str, &quot;runoob.com&quot;);</span><br><span class="line">   val = atoi(str);</span><br><span class="line">   printf(&quot;字符串值 = %s, 整型值 = %d\n&quot;, str, val);</span><br><span class="line"></span><br><span class="line">   return(0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">字符串值 = 98993489, 整型值 = 98993489</span><br><span class="line">字符串值 = runoob.com, 整型值 = 0</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="上下文切换相关函数实现的分析"><a href="#上下文切换相关函数实现的分析" class="headerlink" title="上下文切换相关函数实现的分析"></a>上下文切换相关函数实现的分析</h3><h4 id="Thread-Yield"><a href="#Thread-Yield" class="headerlink" title="Thread::Yield()"></a>Thread::Yield()</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void</span><br><span class="line">Thread::Yield ()</span><br><span class="line">&#123;</span><br><span class="line">    Thread *nextThread;</span><br><span class="line">    IntStatus oldLevel = interrupt-&gt;SetLevel(IntOff);//关中断</span><br><span class="line">    </span><br><span class="line">    ASSERT(this == currentThread);//判断本进程是否为当前进程</span><br><span class="line">    </span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Yielding thread \&quot;%s\&quot;\n&quot;, getName());//设置debug信息</span><br><span class="line">    </span><br><span class="line">    nextThread = scheduler-&gt;FindNextToRun();//在就绪队列中找到下一个可运行进程</span><br><span class="line">    if (nextThread != NULL) &#123;//若下一个可运行进程不为空</span><br><span class="line">		scheduler-&gt;ReadyToRun(this);//设置本进程状态为READY</span><br><span class="line">		scheduler-&gt;Run(nextThread);//运行下一个进程</span><br><span class="line">    &#125;</span><br><span class="line">    (void) interrupt-&gt;SetLevel(oldLevel);//开中断</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Scheduler-Run-Thread-nextThread"><a href="#Scheduler-Run-Thread-nextThread" class="headerlink" title="Scheduler::Run (Thread *nextThread)"></a>Scheduler::Run (Thread *nextThread)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void</span><br><span class="line">Scheduler::Run (Thread *nextThread)</span><br><span class="line">&#123;</span><br><span class="line">    Thread *oldThread = currentThread;</span><br><span class="line">    </span><br><span class="line">    oldThread-&gt;CheckOverflow();		    // 检查旧进程是否有不可删除的栈溢出</span><br><span class="line">					    // had an undetected stack overflow</span><br><span class="line"></span><br><span class="line">    currentThread = nextThread;		    // 宏变量当前进程设置为即将运行的进程</span><br><span class="line">    currentThread-&gt;setStatus(RUNNING);      // 设置本进程状态为RUNNING</span><br><span class="line">    </span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Switching from thread \&quot;%s\&quot; to thread \&quot;%s\&quot;\n&quot;,</span><br><span class="line">	  oldThread-&gt;getName(), nextThread-&gt;getName());</span><br><span class="line">    </span><br><span class="line">    //阅读汇编代码</span><br><span class="line">    SWITCH(oldThread, nextThread);//交换两个进程的状态</span><br><span class="line">    //返回nextThread的执行</span><br><span class="line">    </span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Now in thread \&quot;%s\&quot;\n&quot;, currentThread-&gt;getName());</span><br><span class="line"></span><br><span class="line">    // 处理完成运行的旧线程</span><br><span class="line">    if (threadToBeDestroyed != NULL) &#123;</span><br><span class="line">        delete threadToBeDestroyed;</span><br><span class="line">		threadToBeDestroyed = NULL;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Thread-finish"><a href="#Thread-finish" class="headerlink" title="Thread::finish()"></a>Thread::finish()</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void</span><br><span class="line">Thread::Finish ()</span><br><span class="line">&#123;</span><br><span class="line">    (void) interrupt-&gt;SetLevel(IntOff);		</span><br><span class="line">    ASSERT(this == currentThread);</span><br><span class="line">    </span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Finishing thread \&quot;%s\&quot;\n&quot;, getName());</span><br><span class="line">    </span><br><span class="line">    threadToBeDestroyed = currentThread;</span><br><span class="line">    Sleep();					// invokes SWITCH</span><br><span class="line">    // not reached</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Thread-sleep"><a href="#Thread-sleep" class="headerlink" title="Thread::sleep()"></a>Thread::sleep()</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void</span><br><span class="line">Thread::Sleep ()</span><br><span class="line">&#123;</span><br><span class="line">    Thread *nextThread;</span><br><span class="line">    </span><br><span class="line">    ASSERT(this == currentThread);</span><br><span class="line">    ASSERT(interrupt-&gt;getLevel() == IntOff);</span><br><span class="line">    </span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Sleeping thread \&quot;%s\&quot;\n&quot;, getName());</span><br><span class="line"></span><br><span class="line">    status = BLOCKED;</span><br><span class="line">    while ((nextThread = scheduler-&gt;FindNextToRun()) == NULL)</span><br><span class="line">	interrupt-&gt;Idle();	// no one to run, wait for an interrupt</span><br><span class="line">        </span><br><span class="line">    scheduler-&gt;Run(nextThread); // returns when we&#x27;ve been signalled</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>当前进程设置状态为 BLOCKED</p>
+</li>
+<li><p>寻找下一个可执行进程并运行</p>
+</li>
+<li><p>若找不到可执行进程，等待一个中断</p>
+</li>
+</ul>
+<p>Thread::Sleep()只是将当前线程的状态设置为 BLOCKED，然后调度下一 个线程执行；</p>
+<p>（目前 Sleep()在信号量的 P、V 操作、Thread::Finish()调用）；</p>
+<h4 id="Thread-FindNextToRun"><a href="#Thread-FindNextToRun" class="headerlink" title="Thread::FindNextToRun()"></a>Thread::FindNextToRun()</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Thread *</span><br><span class="line">Scheduler::FindNextToRun ()</span><br><span class="line">&#123;</span><br><span class="line">    return (Thread *)readyList-&gt;Remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在就绪队列中返回队首的就绪线程，并将该线程在就绪队列中移除</p>
+<h2 id="实验四-Nachos-的文件系统"><a href="#实验四-Nachos-的文件系统" class="headerlink" title="实验四 Nachos 的文件系统"></a>实验四 Nachos 的文件系统</h2><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><ol>
+<li>理解 Nachos 硬盘是如何创建的； </li>
+<li>熟悉查看 Nachos 硬盘上的内容的方法； </li>
+<li>理解硬盘初始化的过程（如何在硬盘上创建一个文件系统）； </li>
+<li>了解 Nachos 文件系统提供了哪些命令，哪些命令已经实现，哪些需要你自 己实现； </li>
+<li>理解已经实现的文件系统命令的实现原理； </li>
+<li>理解硬盘空闲块的管理方法； </li>
+<li>理解目录文件的结构与管理；</li>
+<li>理解文件的结构与文件数据块的分配方法； </li>
+<li>了解一个文件系统命令执行后，硬盘的布局； </li>
+<li>分析目前 Nachos 不能对文件进行扩展的原因，考虑解决方案；</li>
+</ol>
+<h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><p>Nachos实现了两个版本的文件系统</p>
+<ul>
+<li>FILESYS_STUB：直接利用UNIX所提供的系统调用实现</li>
+<li>FILESYS：通过Openfile类对DISK上的文件进行操作，尽管最终也是使用系统调用</li>
+</ul>
+<h4 id="硬盘初始化"><a href="#硬盘初始化" class="headerlink" title="硬盘初始化"></a>硬盘初始化</h4><p>（1）..&#x2F;lab5&#x2F;main.cc 调用了..&#x2F;threads&#x2F;system.cc 中的 Initialize()创建了硬盘 DISK。 分析..&#x2F;threads&#x2F;synchdisk.cc 及..&#x2F;machine&#x2F;disk.cc，理解 Nachos 创建硬盘的过程与方法；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Disk::Disk(char* name, VoidFunctionPtr callWhenDone, _int callArg)</span><br><span class="line">&#123;</span><br><span class="line">    int magicNum;</span><br><span class="line">    int tmp = 0;</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;d&#x27;, &quot;Initializing the disk, 0x%x 0x%x\n&quot;, callWhenDone, callArg);</span><br><span class="line">    handler = callWhenDone;</span><br><span class="line">    handlerArg = callArg;</span><br><span class="line">    lastSector = 0;</span><br><span class="line">    bufferInit = 0;</span><br><span class="line">    </span><br><span class="line">    fileno = OpenForReadWrite(name, FALSE);</span><br><span class="line">    if (fileno &gt;= 0) &#123;		 	// 文件存在，检查magicNum</span><br><span class="line">		Read(fileno, (char *) &amp;magicNum, MagicSize);//获取前四个字节 Sizeof(int)</span><br><span class="line">		ASSERT(magicNum == MagicNumber);</span><br><span class="line">    &#125; else &#123;				// 文件不存在，创建文件</span><br><span class="line">        fileno = OpenForWrite(name);</span><br><span class="line">		magicNum = MagicNumber;  </span><br><span class="line">		WriteFile(fileno, (char *) &amp;magicNum, MagicSize); // 写入magicNum</span><br><span class="line"></span><br><span class="line">	// need to write at end of file, so that reads will not return EOF</span><br><span class="line">        Lseek(fileno, DiskSize - sizeof(int), 0);	</span><br><span class="line">		WriteFile(fileno, (char *)&amp;tmp, sizeof(int));  </span><br><span class="line">    &#125;</span><br><span class="line">    active = FALSE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建一个文件用来当硬盘</p>
+<ul>
+<li>若文件存在，检查magicNum</li>
+<li>若文件不存在，创建文件</li>
+</ul>
+<h4 id="硬盘大小"><a href="#硬盘大小" class="headerlink" title="硬盘大小"></a>硬盘大小</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define SectorSize 		128	// 每个扇区的字节数</span><br><span class="line">#define SectorsPerTrack 	32	// 每道的扇区数</span><br><span class="line">#define NumTracks 		32	// 硬盘的道数</span><br><span class="line">#define NumSectors 		(SectorsPerTrack * NumTracks)</span><br><span class="line"></span><br><span class="line">#define MagicNumber 	0x456789ab</span><br><span class="line">#define MagicSize 	sizeof(int) //4字节大小</span><br><span class="line"></span><br><span class="line">#define DiskSize 	(MagicSize + (NumSectors * SectorSize))</span><br></pre></td></tr></table></figure>
+
+<p>总扇区数：32*32&#x3D;1024</p>
+<p>硬盘大小：（4+32<em>32</em>128）B&#x2F;1024&#x3D;0x80KB</p>
+<h4 id="Nachos的文件系统命令"><a href="#Nachos的文件系统命令" class="headerlink" title="Nachos的文件系统命令"></a>Nachos的文件系统命令</h4><p>（2）分析..&#x2F;lab5&#x2F;main.cc，了解 Nachos 文件系统提供了哪些命令，对每个命令进 行测试，根据执行结果观察哪些命令已经实现（正确运行），哪些无法正确运行（尚未 完全实现，需要你自己完善）；</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-d f</td>
+<td>可选参数[-d f]的作用是打印出所有与文件系统有关的调试信息。</td>
+</tr>
+<tr>
+<td align="left">nachos –cp UNIX_filename nachos_filename</td>
+<td>将一个 Unix 文件系统中的文 件 UNIX_filename 复制到 Nachos 文件系统中，重新命名为 nachos_filename</td>
+</tr>
+<tr>
+<td align="left">nachos [-d f] –p nachos_filename</td>
+<td>该命令输出 nachos 文件 nachos_filename 的内容，类似于 UNIX 中的 cat 命令</td>
+</tr>
+<tr>
+<td align="left">nachos [-d f] –r nachos_filename</td>
+<td>删除 Nachos 文件 nachos_filename，类似于 UNIX 中的 rm 命令</td>
+</tr>
+<tr>
+<td align="left">nachos [-d f] -l</td>
+<td>输出当前目录中的文件名，类似于 DOS 中的 dir，UNIX 中的 ls</td>
+</tr>
+<tr>
+<td align="left">nachos [-d f] -t</td>
+<td>测试 Nachos 文件系统的性能（目前尚未实现）</td>
+</tr>
+<tr>
+<td align="left">nachos [-d f] -D</td>
+<td>输出 Nachos 的文件系统在磁盘上的组织。打印出整个文件系统 的所有内容，包括位图文件（bitmap）、文件头（file header）、目录文件（directory） 和普通文件（file）</td>
+</tr>
+</tbody></table>
+<h4 id="文件系统FileSystem的初始化"><a href="#文件系统FileSystem的初始化" class="headerlink" title="文件系统FileSystem的初始化"></a>文件系统FileSystem的初始化</h4><p>（3）分析..&#x2F;filesys&#x2F;filessys.cc，特别是构造函数 FileSystem::FileSystem(..)，理解 Nachos 硬盘”DISK”的创建及硬盘格式化（创建文件系统）的处理过程；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 通过宏定义确定位示图文件头和文件目录表文件头的扇区位置</span><br><span class="line">#define FreeMapSector 		0</span><br><span class="line">#define DirectorySector 	1</span><br><span class="line"></span><br><span class="line">FileSystem::FileSystem(bool format)</span><br><span class="line">&#123; </span><br><span class="line">    DEBUG(&#x27;f&#x27;, &quot;Initializing the file system.\n&quot;);</span><br><span class="line">    if (format) &#123;</span><br><span class="line">        BitMap *freeMap = new BitMap(NumSectors); //位示图</span><br><span class="line">        Directory *directory = new Directory(NumDirEntries); //文件目录表</span><br><span class="line">		FileHeader *mapHdr = new FileHeader; //位示图的文件头</span><br><span class="line">		FileHeader *dirHdr = new FileHeader; //文件目录表的文件头</span><br><span class="line"></span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Formatting the file system.\n&quot;);</span><br><span class="line"></span><br><span class="line">    // 首先，为文件目录表和位示图的文件头分配空间</span><br><span class="line">    // 确保初始化信息</span><br><span class="line">		freeMap-&gt;Mark(FreeMapSector);	    </span><br><span class="line">		freeMap-&gt;Mark(DirectorySector);</span><br><span class="line"></span><br><span class="line">	// 然后，为位示图数据块和根目录表分配空间，确保有足够的空间</span><br><span class="line">		ASSERT(mapHdr-&gt;Allocate(freeMap, FreeMapFileSize));</span><br><span class="line">		ASSERT(dirHdr-&gt;Allocate(freeMap, DirectoryFileSize));</span><br><span class="line"></span><br><span class="line">    // 将位图和文件目录表的文件头刷新回磁盘</span><br><span class="line">    // 在打开文件前就需要做这一步，否则在打开文件时，磁盘是脏的</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing headers back to disk.\n&quot;);</span><br><span class="line">		mapHdr-&gt;WriteBack(FreeMapSector);    </span><br><span class="line">		dirHdr-&gt;WriteBack(DirectorySector);</span><br><span class="line"></span><br><span class="line">    // 现在可以打开位示图和文件目录表</span><br><span class="line">    // 文件系统操作假设在Nachos运行时这两个文件是打开的</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector); </span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">     </span><br><span class="line">	// 当我们打开文件时，我们可以写每个文件的最初版本到硬盘上</span><br><span class="line">	// 此时文件目录表是空的，但位示图会被改变（由于扇区已经被分配给了文件头</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing bitmap and directory back to disk.\n&quot;);</span><br><span class="line">		freeMap-&gt;WriteBack(freeMapFile);	 // 写回硬盘</span><br><span class="line">		directory-&gt;WriteBack(directoryFile);</span><br><span class="line"></span><br><span class="line">		if (DebugIsEnabled(&#x27;f&#x27;)) &#123;</span><br><span class="line">	    	freeMap-&gt;Print();</span><br><span class="line">	    	directory-&gt;Print();</span><br><span class="line"></span><br><span class="line">       		delete freeMap; </span><br><span class="line">			delete directory; </span><br><span class="line">			delete mapHdr; </span><br><span class="line">			delete dirHdr;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">    // 如果不是在建立硬盘的话，我们只需要打开文件就好</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector);</span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Nachos文件系统布局"><a href="#Nachos文件系统布局" class="headerlink" title="Nachos文件系统布局"></a>Nachos文件系统布局</h4><p>（4）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解格式化硬盘所完成的工作，以及文件系统管理涉及到的一些数据结构组织与使用，如文件头 （FCB）、目录表与目录项、空闲块管理位示图等；</p>
+<p>​        结合输出结果，分析 FileSystem::FileSystem(..)初始化文件系统时涉及到的几个模 块 ， 如 ..&#x2F;filesys&#x2F;filehdr.h(filehdr.cc) ， directory.h(directory.cc) ， ..&#x2F;userprog&#x2F;bitmap.h （bitmap.cc），<strong>理解文件头（FCB）的结构与组织、硬盘空闲块管理使用的位示图文件、目录表文件及目录下的组织与结构</strong>，以及它们在硬盘上的位置；</p>
+<table>
+<thead>
+<tr>
+<th><strong>扇区号</strong></th>
+<th><strong>起止字节</strong></th>
+<th><strong>内容描述</strong></th>
+<th><strong>内容</strong></th>
+<th><strong>大小</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>0x0~0x3</td>
+<td>磁盘标识（魔数）</td>
+<td>0x456789ab</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0x4~0x83</td>
+<td>位示图文件头</td>
+<td>Class FileHeader</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0x84~0x103</td>
+<td>目录表文件头</td>
+<td>Class FileHeader</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0x104~0x183</td>
+<td>位示图文件数据块</td>
+<td>Class BitMap</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0x184~0x203</td>
+<td>根目录表（目录文件）</td>
+<td>Class Directory</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0x204~0x283</td>
+<td>根目录表（目录文件）</td>
+<td>Class Directory</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0x284~0x303</td>
+<td>第一个文件的文件头</td>
+<td>Class FileHeader</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0x304~0x383</td>
+<td>第一个文件的数据块</td>
+<td></td>
+<td>128字节</td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td>(文件需要的块数不定)</td>
+<td>…….</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>第二个文件的文件头</td>
+<td>Class FileHeader</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>第二个文件的数据块</td>
+<td></td>
+<td>128字节</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>……</td>
+<td>……</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>第三个文件的文件头</td>
+<td>Class FileHeader</td>
+<td>128字节</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>第三个文件的数据块</td>
+<td></td>
+<td>128字节</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>…..</td>
+<td>……</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>以此类推</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在系统初始化后查看硬盘内容</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png" alt="image-20220314004009009"></p>
+<p>此时对应查看</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png" alt="image-20220314005505549"></p>
+<p>与DISK文件内容一致</p>
+<p>总结其布局</p>
+<p>文件系统 FileSystem</p>
+<ul>
+<li>位示图 OpenFile* freeMapFile;</li>
+<li>根目录 OpenFile* directoryFile;</li>
+<li>打开文件 OpenFile 结构<ul>
+<li>FileHeader *hdr;            &#x2F;&#x2F; 文件头</li>
+<li>int seekPosition;            &#x2F;&#x2F; 文件内的当前位置</li>
+<li>int hdrSector;                &#x2F;&#x2F; 文件头所在扇区<ul>
+<li>FileHeader 文件头结构<ul>
+<li>int numBytes;            &#x2F;&#x2F; 文件大小，单位：字节</li>
+<li>int numSectors;            &#x2F;&#x2F; 文件的逻辑块数</li>
+<li>int dataSectors[NumDirect];        &#x2F;&#x2F; 数据块所在扇区列表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="三元组信息"><a href="#三元组信息" class="headerlink" title="三元组信息"></a>三元组信息</h5><ul>
+<li><p>文件头</p>
+<ul>
+<li>文件大小 int</li>
+<li>占用扇区数 int</li>
+<li>数据块所在扇区列表  int*30</li>
+</ul>
+</li>
+<li><p>位示图</p>
+</li>
+<li><p>文件目录项</p>
+<ul>
+<li>inUse bool （但为了对齐，编译器分配了4字节</li>
+<li>扇区号 int</li>
+<li>名字 9+1&#x3D;10 字节</li>
+<li>为了对齐 共20字节</li>
+</ul>
+</li>
+</ul>
+<h4 id="更多的验证"><a href="#更多的验证" class="headerlink" title="更多的验证"></a>更多的验证</h4><p>（5）利用命令 nachos –cp ..&#x2F;test&#x2F;small samll 复制文件..&#x2F;test&#x2F;small 到硬盘 DISK 中； </p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png" alt="image-20220314010620035"></p>
+<p>可以看到3号扇区增加一个文件目录项small</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>inUse</th>
+<th>文件头（索引节点）所在的扇区号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>small</td>
+<td>1</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p>5号扇区内保存small文件头内容</p>
+<p>5号扇区文件头</p>
+<ul>
+<li>文件大小：54字节</li>
+<li>分配扇区个数：1</li>
+<li>扇区位置：6号扇区</li>
+</ul>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png" alt="image-20220314010126127"></p>
+<p>验证可得相同内容</p>
+<p>（6）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解创建一个 文件后相关的结构在硬盘上的存储布局； </p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png" alt="image-20220314011027327"></p>
+<p>文件目录表、位示图全部初始化为初始信息。</p>
+<p>（7）复制更多的文件到 DISK 中，然后删除一个文件，利用 hexdump –C DISK 查看文件的布局，分析文件系统的管理策略。</p>
+<p>复制small、big文件到DISK中，删除small文件，查看DISK内容</p>
+<p><img src="/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png" alt="image-20220314010728426"></p>
+<p>删除文件samll后</p>
+<p>更改</p>
+<ul>
+<li>位示图中扇区变为空闲</li>
+<li>目录项变为空闲  isUse置0</li>
+</ul>
+<p>未更改</p>
+<ul>
+<li>文件名、头文件所占扇区号均未清除</li>
+<li>文件头信息、文件内容未清除</li>
+</ul>
+<p>分析文件管理策略：</p>
+<ul>
+<li>删除文件时，并非真的物理性初始化文件信息，只需修改位示图和文件目录表</li>
+<li>文件所在扇区标记为空闲、文件目录表中被删除文件信息无效化便可视为文件已删除</li>
+</ul>
+<h3 id="备注-1"><a href="#备注-1" class="headerlink" title="备注"></a>备注</h3><h4 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h4><h5 id="od命令用于输出文件内容。"><a href="#od命令用于输出文件内容。" class="headerlink" title="od命令用于输出文件内容。"></a>od命令用于输出文件内容。</h5><p>od指令会读取所给予的文件的内容，并将其内容以八进制字码呈现出来。</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>格式规范</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>-t a</td>
+<td>输出命名字符。</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>-t o1</td>
+<td>输出八进制字节。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>-t c</td>
+<td>输出可打印的单字节字符，C反斜杠转义或3位八进制序列。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>-t u2</td>
+<td>输出无符号十进制数（双字节）。</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>-t fF</td>
+<td>输出浮点型。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>-t dI（大写I）</td>
+<td>输出十进制整数。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>-t dL</td>
+<td>输出十进制长整型。</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>-t o2</td>
+<td>输出八进制字节（双字节）。</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>-t d2</td>
+<td>输出十进制数（双字节）。</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>-t x2</td>
+<td>输出十六进制数（双字节）。</td>
+</tr>
+</tbody></table>
+<h5 id="hexdump命令主要用来查看“二进制”文件的十六进制编码"><a href="#hexdump命令主要用来查看“二进制”文件的十六进制编码" class="headerlink" title="hexdump命令主要用来查看“二进制”文件的十六进制编码"></a>hexdump命令<strong>主要用来查看“二进制”文件的十六进制编码</strong></h5><ul>
+<li><p><strong>语法</strong></p>
+<p><strong>hexdump [选项] [文件]…</strong></p>
+</li>
+<li><p><strong>选项</strong></p>
+<ul>
+<li>-<strong>n length</strong>：格式化输出文件的前length个字节</li>
+<li>-<strong>C</strong>：输出规范的十六进制和ASCII码</li>
+<li><strong>-b</strong>：单字节八进制显示</li>
+<li><strong>-c</strong>：单字节字符显示</li>
+<li><strong>-d</strong>：双字节十进制显示</li>
+<li><strong>-o</strong>：双字节八进制显示</li>
+<li><strong>-x</strong>：双字节十六进制显示</li>
+<li><strong>-s</strong>：从偏移量开始输出</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h4><p>目录项的定义</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class DirectoryEntry &#123;</span><br><span class="line">  public:</span><br><span class="line">    bool inUse;				// 该目录项是否已经分配 1字节  编译器出于对其原则分配4字节</span><br><span class="line">    int sector;				// 文件头所在的扇区号 4字节</span><br><span class="line">					//   文件头未FCB或i-node </span><br><span class="line">    char name[FileNameMaxLen + 1];	// 文件名 最长为9个字节</span><br><span class="line">					// +1 末尾 &#x27;\0&#x27;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>目录文件<ul>
+<li>文件头</li>
+<li>目录表</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>inUse</th>
+<th>文件头（索引节点）所在的扇区号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>main.cc</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<ul>
+<li>文件<ul>
+<li>文件头</li>
+<li>数据块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Sectors containing the file headers for the bitmap of free sectors,</span><br><span class="line">// and the directory of files.  These file headers are placed in well-known </span><br><span class="line">// sectors, so that they can be located on boot-up.</span><br><span class="line">#define FreeMapSector 		0</span><br><span class="line">#define DirectorySector 	1</span><br><span class="line"></span><br><span class="line">// Initial file sizes for the bitmap and directory; until the file system</span><br><span class="line">// supports extensible files, the directory size sets the maximum number </span><br><span class="line">// of files that can be loaded onto the disk.</span><br><span class="line">#define FreeMapFileSize 	(NumSectors / BitsInByte)</span><br><span class="line">#define NumDirEntries 		10</span><br><span class="line">#define DirectoryFileSize 	(sizeof(DirectoryEntry) * NumDirEntries)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>文件头相当于FCB</p>
+<h4 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class FileHeader &#123;</span><br><span class="line">  public:</span><br><span class="line">    bool Allocate(BitMap *bitMap, int fileSize);// 初始化文件头</span><br><span class="line">						//  包括在硬盘上分配数据块</span><br><span class="line">    void Deallocate(BitMap *bitMap);  		// 回收数据块</span><br><span class="line"></span><br><span class="line">    void FetchFrom(int sectorNumber); 	// 在硬盘上初始化文件头</span><br><span class="line">    void WriteBack(int sectorNumber); 	// 向硬盘写回文件头的修改内容</span><br><span class="line"></span><br><span class="line">    int ByteToSector(int offset);	// Convert a byte offset into the file</span><br><span class="line">					// to the disk sector containing</span><br><span class="line">					// the byte</span><br><span class="line">					//将文件中的字节偏移量转换为包含该字节的扇区编号</span><br><span class="line"></span><br><span class="line">    int FileLength();			// 以字节为单位返回文件长度</span><br><span class="line"></span><br><span class="line">    void Print();			// 输出文件内容</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line">    int numBytes;			// 文件大小，单位：字节</span><br><span class="line">    int numSectors;			// 文件的逻辑块数</span><br><span class="line">    int dataSectors[NumDirect];		// 直接块数组，依次存储文件的每个数据块所对应的扇区号</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define NumDirect 	((SectorSize - 2 * sizeof(int)) / sizeof(int)) </span><br><span class="line">#define MaxFileSize 	(NumDirect * SectorSize)</span><br></pre></td></tr></table></figure>
+
+<p>每个文件最多包含30个扇区，最大为3780字节（3KB&#x3D;30*128B）</p>
+<p>确定方式</p>
+<p>目标：使文件头大小刚好为一个数据块大小</p>
+<p>文件头包含&#x3D;numBytes(int) + numSectores(int) + dataSectors[]</p>
+<p>使得dataSectors数组大小填满剩下的区域</p>
+<p>size&#x3D;(128-4*2)&#x2F;4&#x3D;30</p>
+<h4 id="硬盘空闲块的管理"><a href="#硬盘空闲块的管理" class="headerlink" title="硬盘空闲块的管理"></a>硬盘空闲块的管理</h4><p>位示图（BitMap）</p>
+<p>位示图也是一个文件，由文件头+数据块组成，文件头保存在第0号扇区中</p>
+<p>1024个扇区对应   1024&#x2F;8&#x3D;128字节</p>
+<p>目录文件（根目录）的文件头存储在第1号扇区</p>
+<p>文件的大小在创建后无法改变</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>博客的搭建</title>
+    <url>/2022/03/10/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="云计算技术实验报告"><a href="#云计算技术实验报告" class="headerlink" title="云计算技术实验报告"></a>云计算技术实验报告</h1><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>熟悉个人博客系统的搭建。</p>
+<p>具体包括：注册Github账号，搭建Hexo环境并实现个人博客搭建，撰写实验报告。</p>
+<span id="more"></span>
+
+<h3 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h3><p>学号：201900130068</p>
+<p>姓名：曹玉雯</p>
+<p>班级：19.2</p>
+<p>实验题目：Github + Hexo搭建个人博客系统</p>
+<p>实验日期：22.03.09</p>
+<h3 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h3><p>联网计算机一台</p>
+<h3 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h3><p>Windows 10</p>
+<h3 id="实验步骤与内容"><a href="#实验步骤与内容" class="headerlink" title="实验步骤与内容"></a>实验步骤与内容</h3><ol>
+<li><p>安装GitHub</p>
+<p>之前已经安装过git</p>
+</li>
+<li><p>安装node.js</p>
+<p>进入官网下载后，无脑next</p>
+</li>
+<li><p>下载hexo框架</p>
+<p>npm install -g hexo-cli</p>
+</li>
+<li><p>建立Hexo博客框架</p>
+<p>新建文件夹 blog</p>
+<p>初始化框架 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>启动博客</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>  小插曲：默认的4000端口无法访问 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000 切换到5000端口</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="部署至GitHub仓库"><a href="#部署至GitHub仓库" class="headerlink" title="部署至GitHub仓库"></a>部署至GitHub仓库</h4><ol>
+<li><p>创建名为yourname.github.io的仓库</p>
+<p>安装hexo插件</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改站点配置文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml  //我是使用的vim编辑器打开,你也可以使用记事本</span><br><span class="line"></span><br><span class="line">//定位到文件末尾找到下面这个地方：deploy，</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: </span><br><span class="line">  repo: </span><br></pre></td></tr></table></figure>
+
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/ yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>部署到github上</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>ps：错误最常见于这一步，很多人出现了无法访问github的问题</p>
+<p>​        根本原因是因为之前没有使用过github，未配置ssh密匙，配置一下就好了</p>
+<p>​        github连接也不是很稳定</p>
+<ol start="4">
+<li>访问</li>
+</ol>
+<p><a href="https://pipixia23333.github.io/">Const_Point (pipixia23333.github.io)</a></p>
+<p>完成目标</p>
+<p><img src="/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%9E%E9%AA%8C%E4%B8%89/image-20220310001047156.png" alt="image-20220310001047156"></p>
+<h4 id="对已搭建好的博客进行主题优化"><a href="#对已搭建好的博客进行主题优化" class="headerlink" title="对已搭建好的博客进行主题优化"></a>对已搭建好的博客进行主题优化</h4><p>使用GitHub上标星最多的NexT主题</p>
+<p>设置头像和分组标签等内容进行美化</p>
+<h3 id="体会"><a href="#体会" class="headerlink" title="体会"></a>体会</h3><p>hexo确实很方便的实现了博客的搭建，可以说几乎零代码知识。</p>
+<p>但是想要扩展更多内容，实现自定义，还是要阅读源码。</p>
+<h3 id="参考来源"><a href="#参考来源" class="headerlink" title="参考来源"></a>参考来源</h3><p><a href="https://blog.csdn.net/weixin_42119041/article/details/104101170"> hexo之环境搭建篇_每天进步一点点-CSDN博客_hexo环境</a></p>
+<p><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
+<p><a href="http://theme-next.iissnan.com/getting-started.html">开始使用 - NexT 使用文档 (iissnan.com)</a></p>
+]]></content>
+      <categories>
+        <category>云计算</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>文章的发布</title>
+    <url>/2022/03/14/%E6%96%87%E7%AB%A0%E7%9A%84%E5%8F%91%E5%B8%83/</url>
+    <content><![CDATA[<h1 id="云计算实验报告"><a href="#云计算实验报告" class="headerlink" title="云计算实验报告"></a>云计算实验报告</h1><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>完成作业一，并发布到个人博客上</p>
+<p>个人博客的发布</p>
+<span id="more"></span>
+
+<h3 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h3><p>学号：201900130068</p>
+<p>姓名：曹玉雯</p>
+<p>班级：19.2</p>
+<p>实验题目：Github + Hexo搭建个人博客系统</p>
+<p>实验日期：22.03.09</p>
+<h3 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h3><p>联网计算机一台</p>
+<h3 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h3><p>Windows 10</p>
+<h3 id="实验步骤与内容"><a href="#实验步骤与内容" class="headerlink" title="实验步骤与内容"></a>实验步骤与内容</h3><h4 id="新建一个md文档"><a href="#新建一个md文档" class="headerlink" title="新建一个md文档"></a>新建一个md文档</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo n 云计算作业一</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="编写作业内容"><a href="#编写作业内容" class="headerlink" title="编写作业内容"></a>编写作业内容</h4><p>通过上网查询和翻阅ppt的方式完成作业</p>
+<h4 id="优化博客框架"><a href="#优化博客框架" class="headerlink" title="优化博客框架"></a>优化博客框架</h4><p>下载一个新的主题</p>
+<p>进入 <code>hexo</code> 的博客目录，然后将 <code>next</code> 仓库克隆至 <code>themes</code> 目录下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ cd Blog</span><br><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
+
+<p>打开站点配置文件 <code>_config.yml</code> (Blog目录下) ，找到 <code>theme</code>，修改为 <code>next</code></p>
+<p>设置菜单界面</p>
+<p>在主题配置文件中找到 <code>Menu Settings</code> 部分，然后将 <code>categories</code>, <code>tags</code>、<code>schedule</code> 前面的注释去掉</p>
+<p>在 <code>next</code> 主题中手动生成这三个界面(<code>pages</code>)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories tags schedule</span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改md文档头，为文档添加分类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 云计算作业一</span><br><span class="line">date: 2022-03-14 16:17:00</span><br><span class="line">catelories: 云计算</span><br><span class="line">tags</span><br></pre></td></tr></table></figure>
+
+
+
+<p>图片显示问题</p>
+<p>下载插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>在md文档中编辑时建立同名文件夹用于存储照片，并使用相对路径索引</p>
+<h4 id="生成并发布博客内容"><a href="#生成并发布博客内容" class="headerlink" title="生成并发布博客内容"></a>生成并发布博客内容</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>期间遇到了hexo d时，github连接不稳定的情况</p>
+<p>通过科学上网设置代理解决</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:7890</span><br><span class="line">git config --global https.https://github.com.proxy socks5://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="结论分析与体会"><a href="#结论分析与体会" class="headerlink" title="结论分析与体会"></a>结论分析与体会</h3><p>hexo文档支持各种不同主题和文件分类等功能</p>
+<p>md的文档本身也有很丰富且强大的编辑功能</p>
+]]></content>
+      <categories>
+        <category>云计算</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>云计算作业一</title>
+    <url>/2022/03/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BD%9C%E4%B8%9A%E4%B8%80/</url>
+    <content><![CDATA[<h3 id="作业1"><a href="#作业1" class="headerlink" title="作业1"></a>作业1</h3><ol>
+<li>云使能技术包括哪些技术组件？用一句话简要概括说明其关键特征</li>
+<li>列举至少3种虚拟化软件，并用一句话概括其特点</li>
+</ol>
+<span id="more"></span>
+
+
+
+<h4 id="云使能技术包括哪些技术组件？用一句话简要概括说明其关键特征"><a href="#云使能技术包括哪些技术组件？用一句话简要概括说明其关键特征" class="headerlink" title="云使能技术包括哪些技术组件？用一句话简要概括说明其关键特征"></a>云使能技术包括哪些技术组件？用一句话简要概括说明其关键特征</h4><ul>
+<li>宽带网络和Internet架构<ul>
+<li>互联网或Internet允许远程供给IT资源，并直接支持无处不在的网络接入。</li>
+</ul>
+</li>
+<li>数据中心技术<ul>
+<li>现代数据中心是指一种特殊的IT基础设施，用于集中放置IT资源，包括：<strong>服务器（services）、数据库（data-bases）、网络与通信设备（networking and telecommunication devices）</strong>以及<strong>软件系统（software system）</strong>。</li>
+</ul>
+</li>
+<li>虚拟化技术<ul>
+<li>服务器虚拟化是指利用虚拟化软件将IT硬件抽象为虚拟服务器。</li>
+<li>虚拟化提供了硬件无关性、服务器整合、资源复制、对资源池更强的支持和灵活的可扩展性。</li>
+<li>实现虚拟服务器既可以采用基于操作系统的虚拟化，也可以采用基于硬件的虚拟化。</li>
+</ul>
+</li>
+<li>Web技术<ul>
+<li>Web技术经常被用于云服务的实现，并在前段用于远程管理云IT资源。</li>
+<li>Web架构的基本技术包括URL、HTTP、HTML和XML。</li>
+</ul>
+</li>
+<li>多租户技术<ul>
+<li>使多个用户在逻辑上同时访问同一个应用，每个用户对其使用、管理和定制的应用程序都有自己的视图，是该软件的一个专有实例，同时每个租户都意识不到还有其他租户在使用该应用。</li>
+</ul>
+</li>
+<li>服务技术<ul>
+<li>基于Web的服务(如Web服务和REST服务)依靠非专有通信和技术接口定义来建立基于Web技术的标准通信框架。</li>
+<li>服务代理提供事件驱动运行时处理，适用于云中大量的功能。许多代理都自动部署在操作系统和基于云的产品中。</li>
+<li>服务中间件(如ESB和业务流程平台)可以在云上部署。</li>
+</ul>
+</li>
+</ul>
+<h4 id="虚拟化软件"><a href="#虚拟化软件" class="headerlink" title="虚拟化软件"></a>虚拟化软件</h4><p>Citrix XenServer<br>微软 Windows Server 2008 Hyper-V<br>VMware ESX Server 这是最常用的</p>
+<p>总特点：<br>将服务器物理资源抽象成逻辑资源，让一台服务器变成几台甚至上百台相互隔离的虚拟服务器，或者让几台服务器变成一台服务器来用，我们不再受限于物理上的界限，而是让CPU、内存、磁盘、I&#x2F;O等硬件变成可以动态管理的“资源池”，从而提高资源的利用率，简化系统管理，实现服务器整合，让IT对业务的变化更具适应力</p>
+<p>各自特点</p>
+<ul>
+<li><p>VMware ESX ServerESX Server<br>运行在服务器裸机上，是基于硬件之上的架构。属于企业级应用。用同一台服务器底层硬件，划分出若干虚机，集中管理，很方便的做集群，负载均衡，热迁移等功能。</p>
+</li>
+<li><p>XenCenter</p>
+<p>是Citrix的虚拟化图形接口管理工具，可在同一界面，管理多台的XenServer服务器。管理上，通常会先在XenCenter建立一个服务器群组(Pool)，然后将位于同一机房内的XenServer服务器加入。<br>和大多数服务器半虚拟化产品相同的是，当数台XenServer服务器连接到同一台共享磁盘驱动器，且将虚拟档案放置于此的前提下，可以通过Xen-Motion这项功能，将虚拟机以手动方式在线转移到其它的XenServer服务器，从事主机的维护，或者降低硬件资源的消耗。</p>
+</li>
+<li><p>微软Hyper-V虚拟化平台，</p>
+<p>以Xen的虚拟化技术为基础开发而成的，而这个虚拟化平台目前已整合在64位的Windows Server 2008操作系统</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>云计算</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
+  </entry>
+</search>
