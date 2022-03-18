@@ -22,25 +22,27 @@
 
   <meta name="description" content="操作系统课设Nachos系统总结中断控制器1、几个供外部程序使用的调用接口；  （1）Interrupt::SetLevel(IntOff)：用于关中断；  （2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作；  （3）Interrupt::Halt()：实现停机操作；  （4）Interrupt::Idl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统课设">
+<meta property="og:title" content="Const_Point">
 <meta property="og:url" content="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/index.html">
 <meta property="og:site_name" content="Const_Point">
 <meta property="og:description" content="操作系统课设Nachos系统总结中断控制器1、几个供外部程序使用的调用接口；  （1）Interrupt::SetLevel(IntOff)：用于关中断；  （2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作；  （3）Interrupt::Halt()：实现停机操作；  （4）Interrupt::Idl">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png">
-<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png">
-<meta property="article:published_time" content="2022-03-14T08:45:38.000Z">
-<meta property="article:modified_time" content="2022-03-13T17:25:04.306Z">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220312173117116.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220312220345657.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220313005518934.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314004009009.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314005505549.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010620035.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010126127.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314011027327.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010728426.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314194850745.png">
+<meta property="og:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220315235407884.png">
+<meta property="article:published_time" content="2022-03-13T17:16:49.399Z">
+<meta property="article:modified_time" content="2022-03-18T08:38:02.916Z">
 <meta property="article:author" content="一枚常指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
+<meta name="twitter:image" content="http://example.com/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220312173117116.png">
 
 <link rel="canonical" href="http://example.com/2022/03/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/">
 
@@ -55,7 +57,7 @@
   };
 </script>
 
-  <title>操作系统课设 | Const_Point</title>
+  <title> | Const_Point</title>
   
 
 
@@ -216,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统课设
+          
         </h1>
 
         <div class="post-meta">
@@ -225,19 +227,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-14 16:45:38 / Modified: 01:25:04" itemprop="dateCreated datePublished" datetime="2022-03-14T16:45:38+08:00">2022-03-14</time>
+              <time title="Created: 2022-03-14 01:16:49" itemprop="dateCreated datePublished" datetime="2022-03-14T01:16:49+08:00">2022-03-14</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-18 16:38:02" itemprop="dateModified" datetime="2022-03-18T16:38:02+08:00">2022-03-18</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -262,8 +261,6 @@
 <p>（2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作； </p>
 <p>（3）Interrupt::Halt()：实现停机操作； </p>
 <p>（4）Interrupt::Idle()：相当于一般操作系统中的 idle 进程；</p>
-<span id="more"></span>
-
 <h4 id="中断响应时机"><a href="#中断响应时机" class="headerlink" title="中断响应时机"></a>中断响应时机</h4><p>（1）中断状态从关到开； </p>
 <p>（2）Nachos 的 CPU 执行完一条应用程序指令； </p>
 <p>因为只有上述两种情况发生时，系统时钟才增量（Interrupt::OneTick()，对于第一 种情况，增 10 个 ticks，第二种情况增 1 个 ticks），这时 Nachos 中断控制器才检查是 否有中断到期，如果有，则响应之；</p>
@@ -292,7 +289,7 @@
 
 <h2 id="实验一-Nachos系统的安装与调试"><a href="#实验一-Nachos系统的安装与调试" class="headerlink" title="实验一 Nachos系统的安装与调试"></a>实验一 Nachos系统的安装与调试</h2><h3 id="安装nachos"><a href="#安装nachos" class="headerlink" title="安装nachos"></a>安装nachos</h3><p>根据指导书操作</p>
 <p>最终结果</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png" alt="image-20220312173117116"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220312173117116.png" alt="image-20220312173117116"></p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>（1）在你所生成的 Nachos 系统中，下述函数的地址是多少？并说明找到这些函<br>数地址的过程及方法。<br>i. InterruptEnable()<br>ii. SimpleThread()<br>iii. ThreadFinish()<br>iv. ThreadRoot()</p>
 <p>（2）下述线程对象的地址是多少？并说明找到这些对象地址的过程及方法。<br>i. the main thread of the Nachos<br>ii. the forked thread created by the main thread</p>
 <p>（3）当主线程第一次运行 SWITCH()函数，执行到函数 SWITCH()的最后一条指<br>令 ret 时，CPU 返回的地址是多少？ 该地址对应程序的什么位置？</p>
@@ -477,7 +474,7 @@
 
 <p>修改文件</p>
 <p>可得实验结果</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png" alt="image-20220312220345657"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220312220345657.png" alt="image-20220312220345657"></p>
 <h4 id="分析并理解，Thread-Fork-创建线程的方法"><a href="#分析并理解，Thread-Fork-创建线程的方法" class="headerlink" title="分析并理解，Thread::Fork()创建线程的方法"></a>分析并理解，Thread::Fork()创建线程的方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Thread::Fork(VoidFunctionPtr func, _int arg)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Forking thread \&quot;%s\&quot; with func = 0x%x, arg = %d\n&quot;,  name, (int) func, arg);//设置debug信息</span><br><span class="line">    </span><br><span class="line">    StackAllocate(func, arg);//为线程分配栈</span><br><span class="line"></span><br><span class="line">    IntStatus oldLevel = interrupt-&gt;SetLevel(IntOff);//关中断</span><br><span class="line">    scheduler-&gt;ReadyToRun(this);	// 将线程状态设置为ready并加入就绪队列</span><br><span class="line">    </span><br><span class="line">    (void) interrupt-&gt;SetLevel(oldLevel);//开中断</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
 
 <p>fork()</p>
@@ -491,7 +488,7 @@
 <h4 id="rs轮转调度"><a href="#rs轮转调度" class="headerlink" title="-rs轮转调度"></a>-rs轮转调度</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">else if (!strcmp(*argv, &quot;-rs&quot;)) &#123;</span><br><span class="line">	    ASSERT(argc &gt; 1);</span><br><span class="line">	    RandomInit(atoi(*(argv + 1)));	// initialize pseudo-random</span><br><span class="line">						// number generator</span><br><span class="line">	    randomYield = TRUE;</span><br><span class="line">	    argCount = 2;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>-rs后可跟数字，作为随机数初始化种子</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png" alt="image-20220313005518934"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220313005518934.png" alt="image-20220313005518934"></p>
 <p>可以看到与上次运行结果确实不同，在producer0产生的消息未填满缓冲区时就发生了调度</p>
 <p>通过阅读Interrupt的源码可知，nachos中断响应的时机</p>
 <ul>
@@ -575,45 +572,45 @@
 
 <p>总扇区数：32*32&#x3D;1024</p>
 <p>硬盘大小：（4+32<em>32</em>128）B&#x2F;1024&#x3D;0x80KB</p>
-<h4 id="Nachos的文件系统命令"><a href="#Nachos的文件系统命令" class="headerlink" title="Nachos的文件系统命令"></a>Nachos的文件系统命令</h4><p>（2）分析..&#x2F;lab5&#x2F;main.cc，了解 Nachos 文件系统提供了哪些命令，对每个命令进 行测试，根据执行结果观察哪些命令已经实现（正确运行），哪些无法正确运行（尚未 完全实现，需要你自己完善）；</p>
+<h4 id="Nachos的文件系统命令"><a href="#Nachos的文件系统命令" class="headerlink" title="Nachos的文件系统命令"></a>Nachos的文件系统命令</h4><p>（2）分析..&#x2F;lab5&#x2F;main.cc，了解 Nachos 文件系统提供了哪些命令，对每个命令进行测试，根据执行结果观察哪些命令已经实现（正确运行），哪些无法正确运行（尚未 完全实现，需要你自己完善）；</p>
 <table>
 <thead>
 <tr>
-<th align="left">命令</th>
+<th>命令</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">-d f</td>
+<td>-d f</td>
 <td>可选参数[-d f]的作用是打印出所有与文件系统有关的调试信息。</td>
 </tr>
 <tr>
-<td align="left">nachos –cp UNIX_filename nachos_filename</td>
+<td>nachos –cp UNIX_filename nachos_filename</td>
 <td>将一个 Unix 文件系统中的文 件 UNIX_filename 复制到 Nachos 文件系统中，重新命名为 nachos_filename</td>
 </tr>
 <tr>
-<td align="left">nachos [-d f] –p nachos_filename</td>
+<td>nachos [-d f] –p nachos_filename</td>
 <td>该命令输出 nachos 文件 nachos_filename 的内容，类似于 UNIX 中的 cat 命令</td>
 </tr>
 <tr>
-<td align="left">nachos [-d f] –r nachos_filename</td>
+<td>nachos [-d f] –r nachos_filename</td>
 <td>删除 Nachos 文件 nachos_filename，类似于 UNIX 中的 rm 命令</td>
 </tr>
 <tr>
-<td align="left">nachos [-d f] -l</td>
+<td>nachos [-d f] -l</td>
 <td>输出当前目录中的文件名，类似于 DOS 中的 dir，UNIX 中的 ls</td>
 </tr>
 <tr>
-<td align="left">nachos [-d f] -t</td>
+<td>nachos [-d f] -t</td>
 <td>测试 Nachos 文件系统的性能（目前尚未实现）</td>
 </tr>
 <tr>
-<td align="left">nachos [-d f] -D</td>
+<td>nachos [-d f] -D</td>
 <td>输出 Nachos 的文件系统在磁盘上的组织。打印出整个文件系统 的所有内容，包括位图文件（bitmap）、文件头（file header）、目录文件（directory） 和普通文件（file）</td>
 </tr>
 </tbody></table>
 <h4 id="文件系统FileSystem的初始化"><a href="#文件系统FileSystem的初始化" class="headerlink" title="文件系统FileSystem的初始化"></a>文件系统FileSystem的初始化</h4><p>（3）分析..&#x2F;filesys&#x2F;filessys.cc，特别是构造函数 FileSystem::FileSystem(..)，理解 Nachos 硬盘”DISK”的创建及硬盘格式化（创建文件系统）的处理过程；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">// 通过宏定义确定位示图文件头和文件目录表文件头的扇区位置</span><br><span class="line">#define FreeMapSector 		0</span><br><span class="line">#define DirectorySector 	1</span><br><span class="line"></span><br><span class="line">FileSystem::FileSystem(bool format)</span><br><span class="line">&#123; </span><br><span class="line">    DEBUG(&#x27;f&#x27;, &quot;Initializing the file system.\n&quot;);</span><br><span class="line">    if (format) &#123;</span><br><span class="line">        BitMap *freeMap = new BitMap(NumSectors); //位示图</span><br><span class="line">        Directory *directory = new Directory(NumDirEntries); //文件目录表</span><br><span class="line">		FileHeader *mapHdr = new FileHeader; //位示图的文件头</span><br><span class="line">		FileHeader *dirHdr = new FileHeader; //文件目录表的文件头</span><br><span class="line"></span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Formatting the file system.\n&quot;);</span><br><span class="line"></span><br><span class="line">    // 首先，为文件目录表和位示图的文件头分配空间</span><br><span class="line">    // 确保初始化信息</span><br><span class="line">		freeMap-&gt;Mark(FreeMapSector);	    </span><br><span class="line">		freeMap-&gt;Mark(DirectorySector);</span><br><span class="line"></span><br><span class="line">	// 然后，为位示图数据块和根目录表分配空间，确保有足够的空间</span><br><span class="line">		ASSERT(mapHdr-&gt;Allocate(freeMap, FreeMapFileSize));</span><br><span class="line">		ASSERT(dirHdr-&gt;Allocate(freeMap, DirectoryFileSize));</span><br><span class="line"></span><br><span class="line">    // 将位图和文件目录表的文件头刷新回磁盘</span><br><span class="line">    // 在打开文件前就需要做这一步，否则在打开文件时，磁盘是脏的</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing headers back to disk.\n&quot;);</span><br><span class="line">		mapHdr-&gt;WriteBack(FreeMapSector);    </span><br><span class="line">		dirHdr-&gt;WriteBack(DirectorySector);</span><br><span class="line"></span><br><span class="line">    // 现在可以打开位示图和文件目录表</span><br><span class="line">    // 文件系统操作假设在Nachos运行时这两个文件是打开的</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector); </span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">     </span><br><span class="line">	// 当我们打开文件时，我们可以写每个文件的最初版本到硬盘上</span><br><span class="line">	// 此时文件目录表是空的，但位示图会被改变（由于扇区已经被分配给了文件头</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing bitmap and directory back to disk.\n&quot;);</span><br><span class="line">		freeMap-&gt;WriteBack(freeMapFile);	 // 写回硬盘</span><br><span class="line">		directory-&gt;WriteBack(directoryFile);</span><br><span class="line"></span><br><span class="line">		if (DebugIsEnabled(&#x27;f&#x27;)) &#123;</span><br><span class="line">	    	freeMap-&gt;Print();</span><br><span class="line">	    	directory-&gt;Print();</span><br><span class="line"></span><br><span class="line">       		delete freeMap; </span><br><span class="line">			delete directory; </span><br><span class="line">			delete mapHdr; </span><br><span class="line">			delete dirHdr;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">    // 如果不是在建立硬盘的话，我们只需要打开文件就好</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector);</span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// 通过宏定义确定位示图文件头和文件目录表文件头的扇区位置</span><br><span class="line">#define FreeMapSector 		0</span><br><span class="line">#define DirectorySector 	1</span><br><span class="line"></span><br><span class="line">FileSystem::FileSystem(bool format)</span><br><span class="line">&#123; </span><br><span class="line">    DEBUG(&#x27;f&#x27;, &quot;Initializing the file system.\n&quot;);</span><br><span class="line">    if (format) &#123;</span><br><span class="line">        BitMap *freeMap = new BitMap(NumSectors); //位示图</span><br><span class="line">        Directory *directory = new Directory(NumDirEntries); //文件目录表</span><br><span class="line">		FileHeader *mapHdr = new FileHeader; //位示图的文件头</span><br><span class="line">		FileHeader *dirHdr = new FileHeader; //文件目录表的文件头</span><br><span class="line"></span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Formatting the file system.\n&quot;);</span><br><span class="line"></span><br><span class="line">    // 首先，标记0号和1号扇区已被使用</span><br><span class="line">		freeMap-&gt;Mark(FreeMapSector);	    </span><br><span class="line">		freeMap-&gt;Mark(DirectorySector);</span><br><span class="line"></span><br><span class="line">	// 然后，为位示图数据块和根目录表分配空间，确保有足够的空间</span><br><span class="line">		ASSERT(mapHdr-&gt;Allocate(freeMap, FreeMapFileSize));</span><br><span class="line">		ASSERT(dirHdr-&gt;Allocate(freeMap, DirectoryFileSize));</span><br><span class="line"></span><br><span class="line">    // 将位图和文件目录表的文件头刷新回磁盘</span><br><span class="line">    // 在打开文件前就需要做这一步，否则在打开文件时，磁盘是脏的</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing headers back to disk.\n&quot;);</span><br><span class="line">		mapHdr-&gt;WriteBack(FreeMapSector);    </span><br><span class="line">		dirHdr-&gt;WriteBack(DirectorySector);</span><br><span class="line"></span><br><span class="line">    // 现在可以打开位示图和文件目录表</span><br><span class="line">    // 文件系统操作假设在Nachos运行时这两个文件是打开的</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector); </span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">     </span><br><span class="line">	// 当我们打开文件时，我们可以写每个文件的最初版本到硬盘上</span><br><span class="line">	// 此时文件目录表是空的，但位示图会被改变（由于扇区已经被分配给了文件头</span><br><span class="line">        DEBUG(&#x27;f&#x27;, &quot;Writing bitmap and directory back to disk.\n&quot;);</span><br><span class="line">		freeMap-&gt;WriteBack(freeMapFile);	 // 写回硬盘</span><br><span class="line">		directory-&gt;WriteBack(directoryFile);</span><br><span class="line"></span><br><span class="line">		if (DebugIsEnabled(&#x27;f&#x27;)) &#123;</span><br><span class="line">	    	freeMap-&gt;Print();</span><br><span class="line">	    	directory-&gt;Print();</span><br><span class="line"></span><br><span class="line">       		delete freeMap; </span><br><span class="line">			delete directory; </span><br><span class="line">			delete mapHdr; </span><br><span class="line">			delete dirHdr;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">    // 如果不是在建立硬盘的话，我们只需要打开文件就好</span><br><span class="line">        freeMapFile = new OpenFile(FreeMapSector);</span><br><span class="line">        directoryFile = new OpenFile(DirectorySector);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="Nachos文件系统布局"><a href="#Nachos文件系统布局" class="headerlink" title="Nachos文件系统布局"></a>Nachos文件系统布局</h4><p>（4）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解格式化硬盘所完成的工作，以及文件系统管理涉及到的一些数据结构组织与使用，如文件头 （FCB）、目录表与目录项、空闲块管理位示图等；</p>
 <p>​        结合输出结果，分析 FileSystem::FileSystem(..)初始化文件系统时涉及到的几个模 块 ， 如 ..&#x2F;filesys&#x2F;filehdr.h(filehdr.cc) ， directory.h(directory.cc) ， ..&#x2F;userprog&#x2F;bitmap.h （bitmap.cc），<strong>理解文件头（FCB）的结构与组织、硬盘空闲块管理使用的位示图文件、目录表文件及目录下的组织与结构</strong>，以及它们在硬盘上的位置；</p>
@@ -755,9 +752,9 @@
 </tr>
 </tbody></table>
 <p>在系统初始化后查看硬盘内容</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png" alt="image-20220314004009009"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314004009009.png" alt="image-20220314004009009"></p>
 <p>此时对应查看</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png" alt="image-20220314005505549"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314005505549.png" alt="image-20220314005505549"></p>
 <p>与DISK文件内容一致</p>
 <p>总结其布局</p>
 <p>文件系统 FileSystem</p>
@@ -799,7 +796,7 @@
 </li>
 </ul>
 <h4 id="更多的验证"><a href="#更多的验证" class="headerlink" title="更多的验证"></a>更多的验证</h4><p>（5）利用命令 nachos –cp ..&#x2F;test&#x2F;small samll 复制文件..&#x2F;test&#x2F;small 到硬盘 DISK 中； </p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png" alt="image-20220314010620035"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010620035.png" alt="image-20220314010620035"></p>
 <p>可以看到3号扇区增加一个文件目录项small</p>
 <table>
 <thead>
@@ -822,14 +819,14 @@
 <li>分配扇区个数：1</li>
 <li>扇区位置：6号扇区</li>
 </ul>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png" alt="image-20220314010126127"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010126127.png" alt="image-20220314010126127"></p>
 <p>验证可得相同内容</p>
 <p>（6）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解创建一个 文件后相关的结构在硬盘上的存储布局； </p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png" alt="image-20220314011027327"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314011027327.png" alt="image-20220314011027327"></p>
 <p>文件目录表、位示图全部初始化为初始信息。</p>
 <p>（7）复制更多的文件到 DISK 中，然后删除一个文件，利用 hexdump –C DISK 查看文件的布局，分析文件系统的管理策略。</p>
 <p>复制small、big文件到DISK中，删除small文件，查看DISK内容</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png" alt="image-20220314010728426"></p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314010728426.png" alt="image-20220314010728426"></p>
 <p>删除文件samll后</p>
 <p>更改</p>
 <ul>
@@ -923,7 +920,23 @@
 </ul>
 </li>
 </ul>
-<h4 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h4><p>目录项的定义</p>
+<h4 id="位示图"><a href="#位示图" class="headerlink" title="位示图"></a>位示图</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class BitMap &#123;</span><br><span class="line">  private:</span><br><span class="line">    int numBits;			// 扇区数 固定不变 初始化来的</span><br><span class="line">    int numWords;			// 位示图存储的字节数</span><br><span class="line">					// 不是字的倍数可以舍入</span><br><span class="line">    unsigned int *map;			// bit storage</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>标记whitch扇区被使用，左移赋值</p>
+<p>BitsInWord&#x3D;32</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void</span><br><span class="line">BitMap::Mark(int which) </span><br><span class="line">&#123; </span><br><span class="line">    ASSERT(which &gt;= 0 &amp;&amp; which &lt; numBits);</span><br><span class="line">    map[which / BitsInWord] |= 1 &lt;&lt; (which % BitsInWord);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他函数的实现规则类似</p>
+<h4 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h4><p>文件目录的定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Directory &#123;</span><br><span class="line">  private:</span><br><span class="line">    int tableSize;			// 目录项的数量</span><br><span class="line">    DirectoryEntry *table;		// 目录项数组</span><br><span class="line"></span><br><span class="line">    int FindIndex(char *name);		// 根据文件名寻找下标</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>目录项的定义</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class DirectoryEntry &#123;</span><br><span class="line">  public:</span><br><span class="line">    bool inUse;				// 该目录项是否已经分配 1字节  编译器出于对其原则分配4字节</span><br><span class="line">    int sector;				// 文件头所在的扇区号 4字节</span><br><span class="line">					//   文件头未FCB或i-node </span><br><span class="line">    char name[FileNameMaxLen + 1];	// 文件名 最长为9个字节</span><br><span class="line">					// +1 末尾 &#x27;\0&#x27;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -980,6 +993,243 @@
 <p>1024个扇区对应   1024&#x2F;8&#x3D;128字节</p>
 <p>目录文件（根目录）的文件头存储在第1号扇区</p>
 <p>文件的大小在创建后无法改变</p>
+<h2 id="实验五"><a href="#实验五" class="headerlink" title="实验五"></a>实验五</h2><h3 id="目的-1"><a href="#目的-1" class="headerlink" title="目的"></a>目的</h3><p>理解文件系统中文件操作的实现方法，如文件打开、读、写、扩展、定位、关闭等； </p>
+<p>理解如何管理硬盘空闲块； </p>
+<p>创建文件时，如何为文件分配目录项及文件头（FCB）；</p>
+<p>理解文件扩展时，如何为要扩展的数据查找并分配空闲块； </p>
+<p>理解文件扩展后，文件大小是如何记录与保存的； </p>
+<p>文件被删除后，如何回收为其分配的资源，如文件头、目录项、硬盘块等； </p>
+<p>拓展：有精力的同学可进一步尝试多级目录（目录树）的设计与实现方法。根据上述工作，总结操作系统（如 Nachos）读写文件，以及对文件追加数据的过程与步骤（如操作系统需要操作哪些文件系统的控制信息，如何操作的等）。</p>
+<h3 id="任务-1"><a href="#任务-1" class="headerlink" title="任务"></a>任务</h3><p>让你修改 Nachos 的文件系统，以满足： </p>
+<ol>
+<li><p>文件创建时，其大小可初始化为 0； </p>
+</li>
+<li><p>当一个文件写入更多的数据时，其大小可随之增大； </p>
+</li>
+<li><p>要求能够在从一个文件的任何位置开始写入数据，即能够正确处理命令行参数 </p>
+<p>-ap, -hap,及-nap；</p>
+</li>
+</ol>
+<p>例子</p>
+<p>如果一个文件的大小为 100 字节，当从其偏移量 50（第一个字节的偏移量 是 0）开始写入 100 个字节后，该文件的大小应该为 150 字节</p>
+<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220314194850745.png" alt="image-20220314194850745"></p>
+<h3 id="实验过程-1"><a href="#实验过程-1" class="headerlink" title="实验过程"></a>实验过程</h3><h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>确定需要修改的文件和函数</p>
+<p>首先阅读源码可知，</p>
+<ul>
+<li><p>OpenFile::WriteAt(char *from, int numBytes, int position)函数实现了从任意位置插入内容，但是并不可以扩展文件大小，修改其内部代码，增加扩展文件大小的函数调用</p>
+</li>
+<li><p>Openfile::WriteBack()  实现将新的文件头写回硬盘</p>
+<ul>
+<li>FileHeader::void WriteBack(int sectorNumber);FileHeader类本身拥有将自身写回硬盘sectorNumber扇区的函数，但是我们缺少原文件头所在扇区号的参数</li>
+<li>Openfile增加私有变量hdrSector用于记录文件头所在扇区，并在初始化时更新</li>
+</ul>
+</li>
+<li><p>新函数 Openfile::ExtendSpace(int NumByte) 增加NumByte的空间</p>
+<ul>
+<li>实现方式通过调用FileHeader *hdr;的内部函数实现</li>
+<li>FileHeader::ExtendSpace(BitMap *bitMap,int NumByte)  增加NumByte的字节，并修改位示图</li>
+</ul>
+</li>
+<li><p>OpenFile类的新函数</p>
+<ul>
+<li>BitMap* getBitMap();   获取位示图</li>
+<li>void setBitMap(BitMap* freeMap);  写回位示图</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>修改OpenFile，增加初始化私有成员hdrSector</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenFile::OpenFile(int sector)</span><br><span class="line">&#123; </span><br><span class="line">    hdr = new FileHeader;</span><br><span class="line">    hdr-&gt;FetchFrom(sector);</span><br><span class="line">    seekPosition = 0;</span><br><span class="line">    hdrSector = sector;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获得扇区号后，增加函数WriteBack，将头文件写回硬盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int OpenFile::WriteBack()&#123;</span><br><span class="line">    hdr-&gt;WriteBack(hdrSector);</span><br><span class="line">    return hdrSector;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展文件大小</p>
+<p>函数实现模仿<code>bool Allocate(BitMap *bitMap, int fileSize);</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">int FileHeader::ExtendSpace(BitMap *bitMap,int NewByteNum)&#123;</span><br><span class="line">    int NewSectorNum; //新扇区数量</span><br><span class="line">    int OriginalRemainingSpace = SectorSize*numSectors - numBytes; //原剩余空间</span><br><span class="line">    int ExtendByteNum = NewByteNum - OriginalRemainingSpace; </span><br><span class="line">    								//扩展空间= 新增字节数 - 原剩余空间</span><br><span class="line">    NewSectorNum = divRoundUp(ExtendByteNum,SectorSize); //新增扇区数</span><br><span class="line"></span><br><span class="line">	//若新增扇区数小于等于0，简单增加文件长度后直接返回</span><br><span class="line">    if (NewSectorNum &lt;= 0)&#123; </span><br><span class="line">        numBytes += NewByteNum;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	// 硬盘剩余扇区数小于新增扇区数，扩展失败，返回-1</span><br><span class="line">    if(bitMap-&gt;NumClear()&lt;NewSectorNum)&#123; </span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	// 超过可分配的最大扇区数量，扩展失败</span><br><span class="line">	if((NewSectorNum+numSectors)&gt;30)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	//最初匹配，寻找第一个空闲扇区，放入文件头的扇区分配数组</span><br><span class="line">    for(int i = numSectors;i &lt; numSectors+NewSectorNum ; i++)&#123;</span><br><span class="line">        dataSectors[i] = bitMap-&gt;Find();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //更新文件头信息</span><br><span class="line">    numSectors += NewSectorNum;</span><br><span class="line">    numBytes += NewByteNum;</span><br><span class="line"></span><br><span class="line">    return NewSectorNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现OpenFile::ExtenByte(int)函数，这个函数主要是帮助FileHead::ExtendSpace()函数准备位示图并将更新后的位示图写回DISK</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">OpenFile::ExtendSpace(int NumByte)&#123;</span><br><span class="line">    </span><br><span class="line">    BitMap* bitMap = fileSystem-&gt;getBitMap();</span><br><span class="line"></span><br><span class="line">    int ExtendSectorNum = hdr-&gt;ExtendSpace(bitMap,NumByte);</span><br><span class="line">    </span><br><span class="line">    fileSystem-&gt;setBitMap(bitMap);</span><br><span class="line">    return ExtendSectorNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>更新WriteAt函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">OpenFile::WriteAt(char *from, int numBytes, int position)</span><br><span class="line">&#123;</span><br><span class="line">    int fileLength = hdr-&gt;FileLength();</span><br><span class="line">    int i, firstSector, lastSector, numSectors;</span><br><span class="line">    bool firstAligned, lastAligned;</span><br><span class="line">    char *buf;</span><br><span class="line"></span><br><span class="line">//以下修改的内容</span><br><span class="line">    if (numBytes &lt;= 0)</span><br><span class="line">	    return 0;				// 判断写入字节数</span><br><span class="line">    if ((position + numBytes) &gt; fileLength)&#123;</span><br><span class="line">        //判断写入后的位置是否大于文件长度</span><br><span class="line">        int incrementBytes = (position + numBytes) - fileLength;</span><br><span class="line">        int Extend = ExtendSpace(incrementBytes);</span><br><span class="line">        //扩展文件长度</span><br><span class="line">    &#125;</span><br><span class="line">//以上为修改内容</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;f&#x27;, &quot;Writing %d bytes at %d, from file of length %d.\n&quot;, 	</span><br><span class="line">			numBytes, position, fileLength);</span><br><span class="line"></span><br><span class="line">    firstSector = divRoundDown(position, SectorSize);</span><br><span class="line">    lastSector = divRoundDown(position + numBytes - 1, SectorSize);</span><br><span class="line">    numSectors = 1 + lastSector - firstSector;</span><br><span class="line"></span><br><span class="line">    buf = new char[numSectors * SectorSize];</span><br><span class="line"></span><br><span class="line">    firstAligned = (bool)(position == (firstSector * SectorSize));</span><br><span class="line">    lastAligned = (bool)((position + numBytes) == ((lastSector + 1) * SectorSize));</span><br><span class="line"></span><br><span class="line">// read in first and last sector, if they are to be partially modified</span><br><span class="line">    if (!firstAligned)</span><br><span class="line">        ReadAt(buf, SectorSize, firstSector * SectorSize);	</span><br><span class="line">    if (!lastAligned &amp;&amp; ((firstSector != lastSector) || firstAligned))</span><br><span class="line">        ReadAt(&amp;buf[(lastSector - firstSector) * SectorSize], </span><br><span class="line">				SectorSize, lastSector * SectorSize);	</span><br><span class="line"></span><br><span class="line">// copy in the bytes we want to change </span><br><span class="line">    bcopy(from, &amp;buf[position - (firstSector * SectorSize)], numBytes);</span><br><span class="line"></span><br><span class="line">// write modified sectors back    </span><br><span class="line">    for (i = firstSector; i &lt;= lastSector; i++)	</span><br><span class="line">        synchDisk-&gt;WriteSector(hdr-&gt;ByteToSector(i * SectorSize), </span><br><span class="line">					&amp;buf[(i - firstSector) * SectorSize]);</span><br><span class="line">    delete [] buf;</span><br><span class="line"></span><br><span class="line">    //printf(&quot;NumByte: %d\n&quot;,numBytes);</span><br><span class="line">    return numBytes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE.assets/image-20220315235407884.png" alt="image-20220315235407884"></p>
+<p>可以看到big的文件内容被添加在了medium后面</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>&#x3D;&#x3D;目前 Nachos 文件系统仅仅实现了单级目录结构，只有一个根目录。可以尝试采用目录树对文件进行管理。&#x3D;&#x3D;</p>
+<h3 id="备注-2"><a href="#备注-2" class="headerlink" title="备注"></a>备注</h3><p>fseek()<br>函数名: fseek<br>功 能: 重定位流上的文件指针</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int fseek(FILE *stream, long offset, int fromwhere);</span><br></pre></td></tr></table></figure>
+
+<p>描 述: 函数设置文件指针stream的位置。</p>
+<ul>
+<li><p>如果执行成功，stream将指向以fromwhere为基准，偏移offset个字节的位置。</p>
+</li>
+<li><p>如果执行失败(比如offset超过文件自身大小)，则不改变stream指向的位置。</p>
+</li>
+<li><p>返回值: 成功，返回0，否则返回其他值。</p>
+</li>
+</ul>
+<p>第一个参数stream为文件指针<br>第二个参数offset为偏移量，整数表示正向偏移，负数表示负向偏移<br>第三个参数origin设定从文件的哪里开始偏移,可能取值为：SEEK_CUR、 SEEK_END 或 SEEK_SET<br>SEEK_SET： 文件开头     0<br>SEEK_CUR： 当前位置   1<br>SEEK_END： 文件结尾   2<br>其中SEEK_SET,SEEK_CUR和SEEK_END和依次为0，1和2.</p>
+<p>ftell()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long ftell(FILE *fp);</span><br></pre></td></tr></table></figure>
+
+<p>函数功能：返回当前文件指针的位置。这个位置是指当前文件指针相对于文件开头的位移量</p>
+<p>返回值：返回文件指针的位置，若出错则返回-1L</p>
+<p>fread()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size_t  fread( void  *buffer, size_t  size, size_t  count, FILE  *stream  ) </span><br></pre></td></tr></table></figure>
+
+<p>buffer  读取的数据存放的内存的指针，可以是数组，也可以是新开辟的空间，buffer就是一个索引</p>
+<p>size    每次读取的字节数  </p>
+<p>count   读取次数  </p>
+<p>strean  要读取的文件的指针  </p>
+<p>返回值为读取元素个数</p>
+<p>bcopy()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extern void bcopy(const void *src, void *dest, int n);</span><br></pre></td></tr></table></figure>
+
+<p> 用法：#include &lt;string.h&gt;</p>
+<p> 功能：将字符串src的前n个字节复制到dest中</p>
+<p> 说明：bcopy不检查字符串中的空字节NULL，函数没有返回值。</p>
+<p>类作用总结</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class OpenFile &#123;</span><br><span class="line">  public:</span><br><span class="line">    OpenFile(int sector);		// 根据扇区号打开文件 文件头</span><br><span class="line">    ~OpenFile();			// 关闭文件</span><br><span class="line"></span><br><span class="line">    void Seek(int position); 		// 文件内指针重定位</span><br><span class="line"></span><br><span class="line">    int Read(char *into, int numBytes); // 隐含位置开始读</span><br><span class="line">    int Write(char *from, int numBytes);// 隐含位置开始写</span><br><span class="line"></span><br><span class="line">    int ReadAt(char *into, int numBytes, int position);</span><br><span class="line">    					// 传递位置开始读</span><br><span class="line">    int WriteAt(char *from, int numBytes, int position);</span><br><span class="line"></span><br><span class="line">    int Length(); 			// 返回文件长度</span><br><span class="line">    </span><br><span class="line">  private:</span><br><span class="line">    FileHeader *hdr;			// Header for this file </span><br><span class="line">    int seekPosition;			// Current position within the file</span><br><span class="line">    int hdrSector;              // 文件头所在扇区</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class FileHeader &#123;</span><br><span class="line">  public:</span><br><span class="line">    bool Allocate(BitMap *bitMap, int fileSize);// 初始化文件头，在位示图中分配空间</span><br><span class="line">    void Deallocate(BitMap *bitMap);  		// 删除文件</span><br><span class="line"></span><br><span class="line">    void FetchFrom(int sectorNumber); 	// 根据扇区号初始化文件头</span><br><span class="line">    void WriteBack(int sectorNumber); 	// 写回修改后的文件头</span><br><span class="line"></span><br><span class="line">    int ByteToSector(int offset);	// 将字节偏移量转化为扇区号</span><br><span class="line"></span><br><span class="line">    int FileLength();			// 文件的字节长度</span><br><span class="line"></span><br><span class="line">    void Print();			// 打印文件内容</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line">    int numBytes;			// 字节数</span><br><span class="line">    int numSectors;			// 扇区数</span><br><span class="line">    int dataSectors[NumDirect];		// 扇区数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class FileSystem &#123;</span><br><span class="line">  public:</span><br><span class="line">    FileSystem(bool format);		// Initialize the file system.</span><br><span class="line">					// Must be called *after* &quot;synchDisk&quot; </span><br><span class="line">					// has been initialized.</span><br><span class="line">    					// If &quot;format&quot;, there is nothing on</span><br><span class="line">					// the disk, so initialize the directory</span><br><span class="line">    					// and the bitmap of free blocks.</span><br><span class="line"></span><br><span class="line">    bool Create(char *name, int initialSize);  	</span><br><span class="line">					// Create a file (UNIX creat)</span><br><span class="line"></span><br><span class="line">    OpenFile* Open(char *name); 	// 打开一个文件</span><br><span class="line"></span><br><span class="line">    bool Remove(char *name);  		// 删除一个文件</span><br><span class="line"></span><br><span class="line">    void List();			// 列出文件系统中的所有文件</span><br><span class="line">    void Print();			// 打印出所有文件及其内容</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line">   OpenFile* freeMapFile;		// 位示图</span><br><span class="line">   OpenFile* directoryFile;		// 根部目录文件表</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class BitMap &#123;</span><br><span class="line">  public:</span><br><span class="line">    BitMap(int nitems);		// 初始化位示图，参数：扇区数</span><br><span class="line">    ~BitMap();			// De-allocate bitmap</span><br><span class="line">    </span><br><span class="line">    void Mark(int which);   	// 标记which扇区</span><br><span class="line">    void Clear(int which);  	// 清楚whitch扇区</span><br><span class="line">    bool Test(int which);   	// witch扇区是否使用</span><br><span class="line">    int Find();            	// 寻找并分配第一个空闲扇区 失败返回-1</span><br><span class="line">    int NumClear();		// 返回未使用扇区数</span><br><span class="line"></span><br><span class="line">    void Print();		// 打印位示图信息</span><br><span class="line">    </span><br><span class="line">    // These aren&#x27;t needed until FILESYS, when we will need to read and </span><br><span class="line">    // write the bitmap to a file</span><br><span class="line">    void FetchFrom(OpenFile *file); 	// fetch contents from disk </span><br><span class="line">    void WriteBack(OpenFile *file); 	// write contents to disk</span><br><span class="line"></span><br><span class="line">  private:</span><br><span class="line">    int numBits;			// number of bits in the bitmap</span><br><span class="line">    int numWords;			// number of words of bitmap storage</span><br><span class="line">					// (rounded up if numBits is not a</span><br><span class="line">					//  multiple of the number of bits in</span><br><span class="line">					//  a word)</span><br><span class="line">    unsigned int *map;			// bit storage</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="实验六-Nachos用户程序与系统调用"><a href="#实验六-Nachos用户程序与系统调用" class="headerlink" title="实验六 Nachos用户程序与系统调用"></a>实验六 Nachos用户程序与系统调用</h2><h3 id="目的-2"><a href="#目的-2" class="headerlink" title="目的"></a>目的</h3><p>为后续实验中实现系统调用 Exec()与 Exit()奠定基础 </p>
+<p>理解 Nachos 可执行文件的格式与结构； </p>
+<p>掌握 Nachos 应用程序的编程语法，了解用户进程是如何通过系统调用与操作系统内核进行交互的； 掌握如何利用交叉编译生成 Nachos 的可执行程序； </p>
+<p>理解系统如何为应用程序创建进程，并启动进程； </p>
+<p>理解如何将用户线程映射到核心线程，核心线程执行用户程序的原理与方法； </p>
+<p>理解当前进程的页表是如何与 CPU 使用的页表进行关联的；</p>
+<h3 id="任务-2"><a href="#任务-2" class="headerlink" title="任务"></a>任务</h3><p>该实验将体验 Nachos 的用户程序、应用进程进程及 Nachos 系统调用的相关概念；</p>
+<p>（1）阅读..&#x2F;bin&#x2F;noff.h，分析 Nachos 可执行程序.noff 文件的格式组成； </p>
+<p>（2）阅读..&#x2F;test 目录下的几个 Nachos 应用程序，理解 Nachos 应用程序的编程语法，了解用户进程是如何通过系统调用与操作系统内核进行交互的； </p>
+<p>（3）阅读..&#x2F;test&#x2F;Makefile，掌握如何利用交叉编译生成 Nachos 的可执行程序； </p>
+<p>（4）阅读..&#x2F;threads&#x2F;main.cc，..&#x2F;userprog&#x2F; progtest.cc，根据对命令行参数-x 的处理 过程，理解系统如何为应用程序创建进程，并启动进程的； </p>
+<p>（5）阅读..&#x2F;userprog&#x2F; progtest.cc，..&#x2F;threads&#x2F;scheduler.cc（Run()），理解如何将用户线程映射到核心线程，以及核心线程执行用户程序的原理与方法；</p>
+<p>（6）阅读..&#x2F;userprog&#x2F; progtest.cc，..&#x2F;machine&#x2F;translate.cc，理解当前进程的页表是如何与CPU使用的页表进行关联的；</p>
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><p>Nachos 实现的文件系统实现了两个版本，</p>
+<ul>
+<li>FILESYS_STUB：直接利用 UNIX 所提供的系统调用实现，操作的不是硬盘 DISK 上的文件</li>
+<li>FILESYS：FILESYS 实现的文件系统是通过 OpenFile 类对 DISK 上的文件进行操作（尽管最终也是使用 UNIX 的系统调用实现）</li>
+</ul>
+<p>考察..&#x2F;userprog&#x2F;makefile 与 makefile.local 的内容可以看出，实验 6、7、8 默认使用的是 FILESYS_STUB 定义的相关实现，即不是对 DISK 上的文件进行操作，而是直接对 UNIX 文件进行操作；</p>
+<h4 id="noff文件格式"><a href="#noff文件格式" class="headerlink" title=".noff文件格式"></a>.noff文件格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#define NOFFMAGIC	0xbadfad 	/* 表示Nachos的魔数</span><br><span class="line">					 * object code file </span><br><span class="line">					 */</span><br><span class="line"></span><br><span class="line">typedef struct segment &#123;</span><br><span class="line">  int virtualAddr;		/* 虚拟空间的段地址 */</span><br><span class="line">  int inFileAddr;		/* 本文件的段地址 */</span><br><span class="line">  int size;			/* 段长度 */</span><br><span class="line">&#125; Segment;</span><br><span class="line"></span><br><span class="line">typedef struct noffHeader &#123;</span><br><span class="line">   int noffMagic;		/* 应为NOFFMAGIC */</span><br><span class="line">   Segment code;		/* 可执行段代码 */ </span><br><span class="line">   Segment initData;		/* 初始化过的数据段 */</span><br><span class="line">   Segment uninitData;		/* 未初始化过的数据段 --</span><br><span class="line">				 * should be zero&#x27;ed before use </span><br><span class="line">				 */</span><br><span class="line">&#125; NoffHeader;</span><br></pre></td></tr></table></figure>
+
+<p>分析：Nachos 的应用程序是作者自己定义的一种文件类型，文件头部分结构相对简单，编程方便。</p>
+<p>Nachos文件主要由3部分构成</p>
+<ul>
+<li>可执行代码段</li>
+<li>初始化过的数据段：一般为初始化的全局变量等</li>
+<li>未初始化的数据段：一般指程序运行时才会分配的动态内存、静态变量、未初始化的全局变量</li>
+</ul>
+<p>每个段有自己的信息</p>
+<ul>
+<li>文件中的位置</li>
+<li>大小</li>
+<li>程序入口地址</li>
+</ul>
+<h4 id="将noff文件装入内存"><a href="#将noff文件装入内存" class="headerlink" title="将noff文件装入内存"></a>将noff文件装入内存</h4><p>系统要运行一个应用程序，需要</p>
+<ul>
+<li>为该程序创建一个用户进程</li>
+<li>为程序分配内存空间，将用户程序（代码段与数据段，数据段包括初始化的全局变量与未初始化的全局变量，以及静态变量）装入所分配的内存空间</li>
+<li>创建相应的页表，建立虚页与实页（帧）的映射关系；（参见 AddressSpace:: AddressSpace()）；</li>
+</ul>
+<p>通过noff.h的各种信息，我们可以得知读取noff文件的规则，并定义好相关的数据结构</p>
+<p>Address::Address()初始化将noff文件读入内存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">AddrSpace::AddrSpace(OpenFile *executable)</span><br><span class="line">&#123;</span><br><span class="line">    NoffHeader noffH;</span><br><span class="line">    unsigned int i, size;</span><br><span class="line"></span><br><span class="line">// 检查魔数是否正确</span><br><span class="line">    executable-&gt;ReadAt((char *)&amp;noffH, sizeof(noffH), 0);</span><br><span class="line">    if ((noffH.noffMagic != NOFFMAGIC) &amp;&amp; </span><br><span class="line">		(WordToHost(noffH.noffMagic) == NOFFMAGIC))</span><br><span class="line">    	SwapHeader(&amp;noffH);</span><br><span class="line">    ASSERT(noffH.noffMagic == NOFFMAGIC);</span><br><span class="line"></span><br><span class="line">// 计算地址空间大小</span><br><span class="line">    size = noffH.code.size + noffH.initData.size + noffH.uninitData.size </span><br><span class="line">			+ UserStackSize;	// we need to increase the size   增加栈空间</span><br><span class="line">						// to leave room for the stack</span><br><span class="line">    numPages = divRoundUp(size, PageSize);</span><br><span class="line">    size = numPages * PageSize;</span><br><span class="line"></span><br><span class="line">    ASSERT(numPages &lt;= NumPhysPages);		// 检查所需页数不会超过实际内存页数 64页</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;a&#x27;, &quot;Initializing address space, num pages %d, size %d\n&quot;, </span><br><span class="line">					numPages, size);</span><br><span class="line"></span><br><span class="line">// 设置页表</span><br><span class="line">    pageTable = new TranslationEntry[numPages];</span><br><span class="line">    for (i = 0; i &lt; numPages; i++) &#123;</span><br><span class="line">	    pageTable[i].virtualPage = i;	// 现在虚拟页号等于物理页号</span><br><span class="line">	    pageTable[i].physicalPage = i;</span><br><span class="line">	    pageTable[i].valid = TRUE;</span><br><span class="line">	    pageTable[i].use = FALSE;</span><br><span class="line">	    pageTable[i].dirty = FALSE;</span><br><span class="line">	    pageTable[i].readOnly = FALSE;  // 若代码段在独立的页中，设置为只读</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">// 将整个地址空间置零, 未初始化数据段和栈段</span><br><span class="line">    bzero(machine-&gt;mainMemory, size);</span><br><span class="line"></span><br><span class="line">// 将代码和数据段复制进入内存</span><br><span class="line">    if (noffH.code.size &gt; 0) &#123;</span><br><span class="line">        DEBUG(&#x27;a&#x27;, &quot;Initializing code segment, at 0x%x, size %d\n&quot;, </span><br><span class="line">			noffH.code.virtualAddr, noffH.code.size);</span><br><span class="line">        executable-&gt;ReadAt(&amp;(machine-&gt;mainMemory[noffH.code.virtualAddr]),</span><br><span class="line">			noffH.code.size, noffH.code.inFileAddr);</span><br><span class="line">    &#125;</span><br><span class="line">    if (noffH.initData.size &gt; 0) &#123;</span><br><span class="line">        DEBUG(&#x27;a&#x27;, &quot;Initializing data segment, at 0x%x, size %d\n&quot;, </span><br><span class="line">			noffH.initData.virtualAddr, noffH.initData.size);</span><br><span class="line">        executable-&gt;ReadAt(&amp;(machine-&gt;mainMemory[noffH.initData.virtualAddr]),</span><br><span class="line">			noffH.initData.size, noffH.initData.inFileAddr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序的执行流程为</p>
+<ul>
+<li><p>读入NoffHeader结构，获取文件的基本信息</p>
+</li>
+<li><p>检查noffMagic</p>
+</li>
+<li><p>计算所需空间大小</p>
+<ul>
+<li><p>size &#x3D; noffH.code.size + noffH.initData.size + noffH.uninitData.size + UserStackSize</p>
+</li>
+<li><p>代码段+初始化数据段+未初始化数据段+用户栈空间</p>
+</li>
+</ul>
+</li>
+<li><p>设置页表</p>
+<ul>
+<li>用于实现虚拟地址到物理地址的转换</li>
+</ul>
+</li>
+<li><p>将整个地址空间置零, 包括未初始化数据段和栈段</p>
+</li>
+<li><p>将代码和数据段复制进入内存</p>
+</li>
+</ul>
+<p>页表结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class TranslationEntry &#123;</span><br><span class="line">  public:</span><br><span class="line">    int virtualPage;  	// 虚拟页号</span><br><span class="line">    int physicalPage;  	// 物理页号</span><br><span class="line">    bool valid;         // 有效位</span><br><span class="line">			// 表示本页表项是否被初始化过</span><br><span class="line">    bool readOnly;	// 是否只读</span><br><span class="line">    bool use;           // 页被硬件引用或修改</span><br><span class="line">    bool dirty;         // 脏位</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>主要为页表项结构，记录本页的相关信息</p>
+<h4 id="Nachos应用程序的启动过程"><a href="#Nachos应用程序的启动过程" class="headerlink" title="Nachos应用程序的启动过程"></a>Nachos应用程序的启动过程</h4><p>用户进程需要映射到核心进程才能得到执行：本质上是替换掉地址空间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void</span><br><span class="line">StartProcess(char *filename)</span><br><span class="line">&#123;</span><br><span class="line">    OpenFile *executable = fileSystem-&gt;Open(filename);</span><br><span class="line">    AddrSpace *space;</span><br><span class="line"></span><br><span class="line">    if (executable == NULL) &#123;</span><br><span class="line">	    printf(&quot;Unable to open file %s\n&quot;, filename);</span><br><span class="line">	    return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 将用户进程映射到核心进程</span><br><span class="line">    space = new AddrSpace(executable);    </span><br><span class="line">    currentThread-&gt;space = space;</span><br><span class="line"></span><br><span class="line">    delete executable;			// close file</span><br><span class="line"></span><br><span class="line">    space-&gt;InitRegisters();		// 设置初始寄存器值</span><br><span class="line">    space-&gt;RestoreState();		// 加载页表寄存器</span><br><span class="line"></span><br><span class="line">    machine-&gt;Run();			// 运行用户程序</span><br><span class="line">    ASSERT(FALSE);			// machine-&gt;Run 从不返回，若返回则必定错误</span><br><span class="line">					// the address space exits</span><br><span class="line">					// by doing the syscall &quot;exit&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为使该核心线程能够执行用户进程的代码，需要核心在调度执行该线程时，根据用户进程的页表读取用户进程指令；</p>
+<p>因此需要将用户页表首地址传递给核心的地址变换机构；（machine.h 中维护一个 pageTable 指针，指向当前正在 运行的 Nachos 应用 进程的页表）</p>
+<p>如此一来，我们完成了</p>
+<ul>
+<li>文件的读取</li>
+<li>内存的加载</li>
+<li>用户进程映射到核心进程</li>
+</ul>
+<h4 id="上下文切换的完成"><a href="#上下文切换的完成" class="headerlink" title="上下文切换的完成"></a>上下文切换的完成</h4><p>为便于上下文切换时保存与恢复寄存器状态，Nachos 设置了两组寄存器，</p>
+<ul>
+<li>CPU 使用的寄存器 int registers[NumTotalRegs]（参见 Machine 类 in Machine.h），用于保存执行完一条机器指令时该指令的执行状态；</li>
+<li>运行用户程序时使用的用户寄存器 int userRegisters[NumTotalRegs]，用户保存执行完一条用户程序指令后的寄存器状态（参见 Thread.h）；</li>
+</ul>
+<p>当用户进程进行上下文切换时（实质上是执行用户进程的核心线程发生上下文切换）</p>
+<p>将老进程的 CPU 的寄存器状态保存到用户寄存器 userRegisters[]中</p>
+<p>将新用户进程的寄存器状态恢复到 CPU 的寄存器中，以便 CPU 能够继续执行上次被中断的用户程序；参见 Scheduler::Run()中核心进程切换时对 CPU 寄存器与用户寄存器的保存与恢复；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void</span><br><span class="line">Scheduler::Run (Thread *nextThread)</span><br><span class="line">&#123;</span><br><span class="line">    Thread *oldThread = currentThread;</span><br><span class="line">    </span><br><span class="line">#ifdef USER_PROGRAM			//单独对用户进程进行的额外处理</span><br><span class="line">    if (currentThread-&gt;space != NULL) &#123;	// 如果进程为用户进程,</span><br><span class="line">        currentThread-&gt;SaveUserState(); // 保存用户的CPU寄存器到用户寄存器</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>若是用户进程</p>
+<h4 id="运行指令"><a href="#运行指令" class="headerlink" title="运行指令"></a>运行指令</h4><p>machine::Run() （ .&#x2F;machine&#x2F;mipssim.cc 中 实 现 ）</p>
+<p> 循环调用 Machine::OneInstruction(Instruction *instr) 执行程序指令，直到程序退出或遇到一个异常；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void</span><br><span class="line">Machine::Run()</span><br><span class="line">&#123;</span><br><span class="line">    Instruction *instr = new Instruction;  // 存储指令</span><br><span class="line"></span><br><span class="line">    if(DebugIsEnabled(&#x27;m&#x27;))</span><br><span class="line">        printf(&quot;Starting thread \&quot;%s\&quot; at time %d\n&quot;,</span><br><span class="line">	       currentThread-&gt;getName(), stats-&gt;totalTicks);</span><br><span class="line">    	interrupt-&gt;setStatus(UserMode);</span><br><span class="line">    for (;;) &#123;</span><br><span class="line">        OneInstruction(instr); //运行一条指令</span><br><span class="line">		interrupt-&gt;OneTick(); // 中断完成一次跳动</span><br><span class="line">		if (singleStep &amp;&amp; (runUntilTime &lt;= stats-&gt;totalTicks))</span><br><span class="line">	  		Debugger();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中指令的格式为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Instruction &#123;</span><br><span class="line">  public:</span><br><span class="line">    void Decode();	// 解码指令的二进制表示</span><br><span class="line"></span><br><span class="line">    unsigned int value; // 指令的二进制表示</span><br><span class="line"></span><br><span class="line">    char opCode;     // 指令类型  This is NOT the same as the 与opcode不同</span><br><span class="line">    		     // opcode field from the instruction: see defs in mips.h</span><br><span class="line">    char rs, rt, rd; // 指令的三个寄存器</span><br><span class="line">    int extra;       // Immediate or target or shamt field or offset.</span><br><span class="line">                     // Immediates are sign-extended.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="机器硬件设置"><a href="#机器硬件设置" class="headerlink" title="机器硬件设置"></a>机器硬件设置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define PageSize 	SectorSize 	// y</span><br><span class="line"></span><br><span class="line">#define NumPhysPages    64 //32</span><br><span class="line">#define MemorySize 	(NumPhysPages * PageSize)</span><br><span class="line">#define TLBSize		4		// if there is a TLB, make it small</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="备注-3"><a href="#备注-3" class="headerlink" title="备注"></a>备注</h3><p>void bzero（void *s, int n）；</p>
+<p>头文件：#include &lt;string.h&gt;</p>
+<p>功能：将字符串s的前n个字节置为0，一般来说n通常取sizeof(s),将整块空间清零。</p>
+<p>返回值：无返回值</p>
 
     </div>
 
@@ -995,12 +1245,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/03/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BD%9C%E4%B8%9A%E4%B8%80/" rel="prev" title="云计算作业一">
-      <i class="fa fa-chevron-left"></i> 云计算作业一
+    <a href="/2022/03/10/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/" rel="prev" title="博客的搭建">
+      <i class="fa fa-chevron-left"></i> 博客的搭建
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/03/14/%E6%96%87%E7%AB%A0%E7%9A%84%E5%8F%91%E5%B8%83/" rel="next" title="文章的发布">
-      文章的发布 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/03/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BD%9C%E4%B8%9A%E4%B8%80/" rel="next" title="云计算作业一">
+      云计算作业一 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -1060,7 +1310,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE"><span class="nav-number">1.</span> <span class="nav-text">操作系统课设</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nachos%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.</span> <span class="nav-text">Nachos系统总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">中断控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94%E6%97%B6%E6%9C%BA"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">中断响应时机</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">线程的状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-Nachos%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="nav-number">1.2.</span> <span class="nav-text">实验一 Nachos系统的安装与调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nachos"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装nachos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.3.</span> <span class="nav-text">查询函数地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%AF%B9%E8%B1%A1%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.4.</span> <span class="nav-text">查询对象地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2SWITCH%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.5.</span> <span class="nav-text">查询SWITCH函数返回地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fork%E5%90%8E%E8%BF%90%E8%A1%8CSWICH%E7%9A%84%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.6.</span> <span class="nav-text">Fork后运行SWICH的返回地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-Nachos%E7%9A%84MAKEFILES"><span class="nav-number">1.3.</span> <span class="nav-text">实验二 Nachos的MAKEFILES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%85%B6%E4%BB%96%E7%9B%AE%E5%BD%95%E4%B8%AD%E4%BF%AE%E6%94%B9Nachos%E4%BB%A3%E7%A0%81%E5%B9%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">在其他目录中修改Nachos代码并生成系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9INPATH"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">修改INPATH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%8C%85%E5%90%AB%E4%BF%AE%E6%94%B9%E7%9A%84-h%E6%96%87%E4%BB%B6%E7%9A%84%E6%9C%80%E5%B0%8F%E6%96%87%E4%BB%B6%E9%9B%86"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">寻找包含修改的.h文件的最小文件集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89-%E5%88%A9%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">1.4.</span> <span class="nav-text">实验三 利用信号量实现线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">1.4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="nav-number">1.4.2.</span> <span class="nav-text">设计步骤与要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.3.</span> <span class="nav-text">实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">理解信号量的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9prodcons-cc%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">修改prodcons++.cc的程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%B9%B6%E7%90%86%E8%A7%A3%EF%BC%8CThread-Fork-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">分析并理解，Thread::Fork()创建线程的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rs%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">-rs轮转调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">1.4.4.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">C语言函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-number">1.4.5.</span> <span class="nav-text">上下文切换相关函数实现的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-Yield"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">Thread::Yield()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scheduler-Run-Thread-nextThread"><span class="nav-number">1.4.5.2.</span> <span class="nav-text">Scheduler::Run (Thread *nextThread)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-finish"><span class="nav-number">1.4.5.3.</span> <span class="nav-text">Thread::finish()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-sleep"><span class="nav-number">1.4.5.4.</span> <span class="nav-text">Thread::sleep()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-FindNextToRun"><span class="nav-number">1.4.5.5.</span> <span class="nav-text">Thread::FindNextToRun()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%9B%9B-Nachos-%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">实验四 Nachos 的文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">1.5.1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.5.2.</span> <span class="nav-text">任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">硬盘初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">硬盘大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nachos%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">Nachos的文件系统命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FFileSystem%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">文件系统FileSystem的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nachos%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">Nachos文件系统布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E7%BB%84%E4%BF%A1%E6%81%AF"><span class="nav-number">1.5.2.5.1.</span> <span class="nav-text">三元组信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="nav-number">1.5.2.6.</span> <span class="nav-text">更多的验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8-1"><span class="nav-number">1.5.3.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#od%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E3%80%82"><span class="nav-number">1.5.3.1.1.</span> <span class="nav-text">od命令用于输出文件内容。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexdump%E5%91%BD%E4%BB%A4%E4%B8%BB%E8%A6%81%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E2%80%9D%E6%96%87%E4%BB%B6%E7%9A%84%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="nav-number">1.5.3.1.2.</span> <span class="nav-text">hexdump命令主要用来查看“二进制”文件的十六进制编码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">文件目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">文件头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">文件大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B2%E5%9D%97%E7%9A%84%E7%AE%A1%E7%90%86"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">硬盘空闲块的管理</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE"><span class="nav-number">1.</span> <span class="nav-text">操作系统课设</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nachos%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.</span> <span class="nav-text">Nachos系统总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">中断控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94%E6%97%B6%E6%9C%BA"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">中断响应时机</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">线程的状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-Nachos%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="nav-number">1.2.</span> <span class="nav-text">实验一 Nachos系统的安装与调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nachos"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装nachos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.3.</span> <span class="nav-text">查询函数地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%AF%B9%E8%B1%A1%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.4.</span> <span class="nav-text">查询对象地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2SWITCH%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.5.</span> <span class="nav-text">查询SWITCH函数返回地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fork%E5%90%8E%E8%BF%90%E8%A1%8CSWICH%E7%9A%84%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.6.</span> <span class="nav-text">Fork后运行SWICH的返回地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-Nachos%E7%9A%84MAKEFILES"><span class="nav-number">1.3.</span> <span class="nav-text">实验二 Nachos的MAKEFILES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%85%B6%E4%BB%96%E7%9B%AE%E5%BD%95%E4%B8%AD%E4%BF%AE%E6%94%B9Nachos%E4%BB%A3%E7%A0%81%E5%B9%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">在其他目录中修改Nachos代码并生成系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9INPATH"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">修改INPATH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%8C%85%E5%90%AB%E4%BF%AE%E6%94%B9%E7%9A%84-h%E6%96%87%E4%BB%B6%E7%9A%84%E6%9C%80%E5%B0%8F%E6%96%87%E4%BB%B6%E9%9B%86"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">寻找包含修改的.h文件的最小文件集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89-%E5%88%A9%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">1.4.</span> <span class="nav-text">实验三 利用信号量实现线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">1.4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="nav-number">1.4.2.</span> <span class="nav-text">设计步骤与要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.3.</span> <span class="nav-text">实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">理解信号量的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9prodcons-cc%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">修改prodcons++.cc的程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%B9%B6%E7%90%86%E8%A7%A3%EF%BC%8CThread-Fork-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">分析并理解，Thread::Fork()创建线程的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rs%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">-rs轮转调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">1.4.4.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">C语言函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-number">1.4.5.</span> <span class="nav-text">上下文切换相关函数实现的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-Yield"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">Thread::Yield()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scheduler-Run-Thread-nextThread"><span class="nav-number">1.4.5.2.</span> <span class="nav-text">Scheduler::Run (Thread *nextThread)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-finish"><span class="nav-number">1.4.5.3.</span> <span class="nav-text">Thread::finish()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-sleep"><span class="nav-number">1.4.5.4.</span> <span class="nav-text">Thread::sleep()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-FindNextToRun"><span class="nav-number">1.4.5.5.</span> <span class="nav-text">Thread::FindNextToRun()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%9B%9B-Nachos-%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">实验四 Nachos 的文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">1.5.1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.5.2.</span> <span class="nav-text">任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">硬盘初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">硬盘大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nachos%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">Nachos的文件系统命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FFileSystem%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">文件系统FileSystem的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nachos%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">Nachos文件系统布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E7%BB%84%E4%BF%A1%E6%81%AF"><span class="nav-number">1.5.2.5.1.</span> <span class="nav-text">三元组信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="nav-number">1.5.2.6.</span> <span class="nav-text">更多的验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8-1"><span class="nav-number">1.5.3.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#od%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E3%80%82"><span class="nav-number">1.5.3.1.1.</span> <span class="nav-text">od命令用于输出文件内容。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexdump%E5%91%BD%E4%BB%A4%E4%B8%BB%E8%A6%81%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E2%80%9D%E6%96%87%E4%BB%B6%E7%9A%84%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="nav-number">1.5.3.1.2.</span> <span class="nav-text">hexdump命令主要用来查看“二进制”文件的十六进制编码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E7%A4%BA%E5%9B%BE"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">位示图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">文件目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">文件头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">文件大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B2%E5%9D%97%E7%9A%84%E7%AE%A1%E7%90%86"><span class="nav-number">1.5.3.6.</span> <span class="nav-text">硬盘空闲块的管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%94"><span class="nav-number">1.6.</span> <span class="nav-text">实验五</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1-1"><span class="nav-number">1.6.2.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B-1"><span class="nav-number">1.6.3.</span> <span class="nav-text">实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">1.6.4.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">1.6.5.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8-2"><span class="nav-number">1.6.6.</span> <span class="nav-text">备注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD-Nachos%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">1.7.</span> <span class="nav-text">实验六 Nachos用户程序与系统调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-2"><span class="nav-number">1.7.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1-2"><span class="nav-number">1.7.2.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.7.3.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#noff%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">.noff文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86noff%E6%96%87%E4%BB%B6%E8%A3%85%E5%85%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">将noff文件装入内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nachos%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">1.7.3.3.</span> <span class="nav-text">Nachos应用程序的启动过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E7%9A%84%E5%AE%8C%E6%88%90"><span class="nav-number">1.7.3.4.</span> <span class="nav-text">上下文切换的完成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="nav-number">1.7.3.5.</span> <span class="nav-text">运行指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A1%AC%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.3.6.</span> <span class="nav-text">机器硬件设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8-3"><span class="nav-number">1.7.4.</span> <span class="nav-text">备注</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
