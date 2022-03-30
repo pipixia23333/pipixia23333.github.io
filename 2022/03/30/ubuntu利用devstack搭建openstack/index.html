@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="云计算技术实验报告实验目的在Linux环境下，熟悉Openstack环境 具体包括：了解Openstack编程环境的配置和部署，完成实验环境及实验工具的熟悉，撰写试验报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu利用devstack搭建openstack">
+<meta property="og:url" content="http://example.com/2022/03/30/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/index.html">
+<meta property="og:site_name" content="Const_Point">
+<meta property="og:description" content="云计算技术实验报告实验目的在Linux环境下，熟悉Openstack环境 具体包括：了解Openstack编程环境的配置和部署，完成实验环境及实验工具的熟悉，撰写试验报告">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/image-20220330175232522.png">
+<meta property="og:image" content="http://example.com/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/image-20220330175332327.png">
+<meta property="article:published_time" content="2022-03-30T06:03:23.000Z">
+<meta property="article:modified_time" content="2022-03-30T06:05:13.448Z">
+<meta property="article:author" content="一枚常指针">
+<meta property="article:tag" content="费劲巴拉的">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/image-20220330175232522.png">
+
+<link rel="canonical" href="http://example.com/2022/03/30/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ubuntu利用devstack搭建openstack | Const_Point</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Const_Point</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/30/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile_photo.jpg">
+      <meta itemprop="name" content="一枚常指针">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Const_Point">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ubuntu利用devstack搭建openstack
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-30 14:03:23 / Modified: 14:05:13" itemprop="dateCreated datePublished" datetime="2022-03-30T14:03:23+08:00">2022-03-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" itemprop="url" rel="index"><span itemprop="name">云计算</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="云计算技术实验报告"><a href="#云计算技术实验报告" class="headerlink" title="云计算技术实验报告"></a>云计算技术实验报告</h1><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>在Linux环境下，熟悉Openstack环境</p>
+<p>具体包括：了解Openstack编程环境的配置和部署，完成实验环境及实验工具的熟悉，撰写试验报告</p>
+<span id="more"></span>
+
+<h3 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h3><p>学号：201900130068</p>
+<p>姓名：曹玉雯</p>
+<p>班级：19.2</p>
+<p>实验题目：面向LaaS的Openstack部署</p>
+<p>实验日期：22.03.30</p>
+<h2 id="了解Openstack"><a href="#了解Openstack" class="headerlink" title="了解Openstack"></a>了解Openstack</h2><h3 id="openstack历史"><a href="#openstack历史" class="headerlink" title="openstack历史"></a>openstack历史</h3><p>时间回到2010年，当时的云计算场景是这样的，亚马逊的AWS稳坐大当家的地位。其他几家IaaS的公司分别是：Cloudstack、Eucalyptus、Nebula(NASA的云平台)和Rackspace Cloud 。</p>
+<p>当时NASA已经在云计算领域投入了大量的资金，使用了很多Eucalyptus的代码。他们在该平台上也进行了很多深度开发，但最后还是放弃了该平台。据说是NASA的工程师试图获取更多的Eucalyptus 代码，但是失败了。因为这个平台只是开放部分的源码。最初的问题仅仅是扩展性问题，后来Eucalyptu与NASA的裂痕发展到无法挽回的地步，是因为NASA发现Eucalyptus不愿向该项目提供解决扩展性问题的代码，即便是该项目并未与Eucalyptus Systems Inc(Eucalyptus幕后的实体公司)造成利益冲突。索性NASA的工程师就用Python开发了Nova，在2010年4月开始筹备OpenStack。2010年7月NASA贡献了自己的云计算管理平台Nova代码，并联合了当时第二大云计算厂商Rackspace(贡献了对象存储代码，也就是后来的Swift)发起了OpenStack开源项目。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>OpenStack是为云计算服务的，更确切地说，它是工作在IaaS这个层面的一套软件。</p>
+<p>我们知道，IaaS全称是“基础设施及服务”，目的是为用户灵活的提供各种资源，从而满足客户的需求。所谓的基础设施，主要就是计算，存储和网络三类资源。那为什么需要OpenStack呢？</p>
+<p>云计算的思想是将所有的资源“池”化，也即是说，不管你有多少台服务器，多少个硬盘，我先把它们做成池子，然后再灵活地分配给不同的用户。那么具体谁来做池子，做完池子以后怎么分配给用户，这就是OpenStack做的事情。它就好比电脑的操作系统，每个应用占用多少CPU，占用多少内存，由操作系统来分配。OpenStack就是云计算的操作系统。</p>
+<h2 id="部署Openstack"><a href="#部署Openstack" class="headerlink" title="部署Openstack"></a>部署Openstack</h2><h3 id="前置知识的了解"><a href="#前置知识的了解" class="headerlink" title="前置知识的了解"></a><strong>前置知识的了解</strong></h3><p>OpenStack介绍</p>
+<p>openstack详细介绍及常用命令请查看<a target="_blank" rel="noopener" href="https://blog.csdn.net/Q0717168/article/details/108099359">此文</a></p>
+<p>通过devstack部署OpenStack，官方文档点击<a target="_blank" rel="noopener" href="https://docs.openstack.org/devstack/latest/">此处查看</a></p>
+<h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a><strong>安装环境</strong></h3><p>由于本实验需要内存为8G以上，所以选择安装双系统</p>
+<ul>
+<li>镜像下载地址: <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/18.04.4/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/18.04.4/</a></li>
+<li>安装教程: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/masbay/p/11627727.html">https://www.cnblogs.com/masbay/p/11627727.html</a></li>
+</ul>
+<p>内容与本实验关联性不大，不过多赘述</p>
+<p>操作系统：Ubuntu 21.10</p>
+<h3 id="源和工具准备"><a href="#源和工具准备" class="headerlink" title="源和工具准备"></a><strong>源和工具准备</strong></h3><p>部分参考教程推荐更换国内apt源，但经测试发现，国内源会出现一些奇怪的依赖性bug</p>
+<p>因此还是推荐使用ubuntu自带的apt源</p>
+<p><strong>升级git、pip、vim等必要工具</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git python-pip</span><br><span class="line">sudo pip install --upgrade pip</span><br><span class="line">sudo pip install -U os-testr</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>更新python3的工具包</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib/python3/dist-packages/</span><br><span class="line"></span><br><span class="line">rm -f pyasn1_modules-0.2.1.egg-info</span><br><span class="line"></span><br><span class="line">rm -f simplejson-3.16.0.egg-info</span><br><span class="line"></span><br><span class="line">apt-get install bridge-utils git python3-pip -y</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>更新pip源</strong></p>
+<p><code>mkdir ~/.pip</code> #建立目录</p>
+<p><code>sudo vim ~/.pip/pip.conf</code> #新建pip源配置文件，填入以下内容(下面是清华源，成功率较高)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>修改host</strong></p>
+<p>由于openstack的大部分资源都是在github上clone下来的，但是github经常出现连接不稳定的情况，这会导致安装到一半显示error，因此需要修改host以保证能稳定clone</p>
+<p>方法不限于</p>
+<p>在<code>/etc/hosts</code>文件内添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#github</span><br><span class="line">140.82.113.4 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+<p>或者设置代理软件也可以</p>
+<h3 id="安装devstack"><a href="#安装devstack" class="headerlink" title="安装devstack"></a>安装devstack</h3><p><strong>创建stack用户</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /bin/bash -d /opt/stack -m stack</span><br></pre></td></tr></table></figure>
+
+<p>授予stack用户sudo权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /bin/bash -d /opt/stack -m stack</span><br></pre></td></tr></table></figure>
+
+<p>切换到stack用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - stack</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>下载devstack</strong></p>
+<p>注意不少的教程给出的git clone devstack的连接都不是最新的，这会导致一些访问失效问题，所以参阅官方手册clone devstack到<code>/opt</code>文件夹下，并修改文件夹权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone https://opendev.org/openstack/devstack /opt/devstack </span><br><span class="line"></span><br><span class="line">sudo chown -R stack:stack /opt/devstack</span><br><span class="line"></span><br><span class="line">sudo chmod -R 777 /opt/devstack </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>添加local.conf文件</strong></p>
+<p><code>cd /opt/devstack</code> #进入devstack目录</p>
+<p>网上其他教程都给出了自己local.conf文件，但我还是更推荐使用官网给出的local.conf文件（因为除了官网的，我都遇到过bug）</p>
+<p>链接如下：</p>
+<blockquote>
+<p>There is a sample <a target="_blank" rel="noopener" href="https://docs.openstack.org/devstack/latest/_downloads/d6fbba8d6ab5e970a86dd2ca0b884098/local.conf"><code>local.conf</code></a> file under the <em>samples</em> directory in the devstack repository.</p>
+</blockquote>
+<h3 id="运行-x2F-stack-sh进行安装"><a href="#运行-x2F-stack-sh进行安装" class="headerlink" title="运行.&#x2F;stack.sh进行安装"></a>运行.&#x2F;stack.sh进行安装</h3><p>中间肯定会遇到各种错误，注意看error报错挨个解决</p>
+<p>解决错误后依次运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./clean.sh./unstack.sh./stack.sh</span><br></pre></td></tr></table></figure>
+
+<p>推荐翻墙后用google查找错误原因</p>
+<h3 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h3><p>安装成功后，命令行显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=========================DevStack Component Timing (times are in seconds)  =========================wait_for_service      10async_wait            72osc                  180apt-get               37test_with_retry        5dbsync                 5pip_install           64apt-get-update         3run_process           19-------------------------Unaccounted time     246=========================Total runtime        641================= Async summary================= Time spent in the background minus waits: 254 sec Elapsed time: 641 sec Time if we did everything serially: 895 sec Speedup:  1.39626This is your host IP address: 172.25.177.58This is your host IPv6 address: 2001:250:5800:1002::13:edb7Horizon is now available at http://172.25.177.58/dashboardKeystone is serving at http://172.25.177.58/identity/The default users are: admin and demoThe password: nomoresecretServices are running under systemd unit files.For more information see: https://docs.openstack.org/devstack/latest/systemd.htmlDevStack Version: zedChange: aac6b6c7912b3feae4b68789508bee4bf1544731 Merge &quot;Drop setup.py and setup.cfg&quot; 2022-03-29 17:50:05 +0000OS Version: Ubuntu 21.10 impish</span><br></pre></td></tr></table></figure>
+
+<p>打开提示的网址</p>
+<p><img src="/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/image-20220330175232522.png" alt="image-20220330175232522"></p>
+<p>输入用户名和密码，进入oepnsack</p>
+<p><img src="/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/image-20220330175332327.png" alt="image-20220330175332327"></p>
+<p>恭喜创建成功</p>
+<h2 id="结论分析与体会"><a href="#结论分析与体会" class="headerlink" title="结论分析与体会"></a>结论分析与体会</h2><p>Openstack的部署确实不容易，经常出现很多奇怪的bug</p>
+<p>不过部署完成之后，对linux各种命令更加熟悉了</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53348314/article/details/123021856?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164861432216781683951230%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=164861432216781683951230&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-7-123021856.142%5Ev5%5Epc_search_result_cache,143%5Ev6%5Econtrol&utm_term=devstack%E9%83%A8%E7%BD%B2openstack&spm=1018.2226.3001.4187">超详细ubuntu20安装搭建openstack</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41773806/article/details/116561060?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164862894416782089377664%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=164862894416782089377664&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-6-116561060.142%5Ev5%5Epc_search_result_cache,143%5Ev6%5Econtrol&utm_term=devstack%E9%83%A8%E7%BD%B2openstack&spm=1018.2226.3001.4187">使用DevStack安装OpenStack在单机上组建私有云</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.openstack.org/devstack/latest/">devstack官方手册</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B4%B9%E5%8A%B2%E5%B7%B4%E6%8B%89%E7%9A%84/" rel="tag"># 费劲巴拉的</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/21/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BD%9C%E4%B8%9A%E4%BA%8C/" rel="prev" title="云计算作业二">
+      <i class="fa fa-chevron-left"></i> 云计算作业二
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="nav-number">1.</span> <span class="nav-text">云计算技术实验报告</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">1.0.1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">1.0.2.</span> <span class="nav-text">个人信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3Openstack"><span class="nav-number">1.1.</span> <span class="nav-text">了解Openstack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#openstack%E5%8E%86%E5%8F%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">openstack历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">1.1.2.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2Openstack"><span class="nav-number">1.2.</span> <span class="nav-text">部署Openstack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">1.2.1.</span> <span class="nav-text">前置知识的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E5%92%8C%E5%B7%A5%E5%85%B7%E5%87%86%E5%A4%87"><span class="nav-number">1.2.3.</span> <span class="nav-text">源和工具准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85devstack"><span class="nav-number">1.2.4.</span> <span class="nav-text">安装devstack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-x2F-stack-sh%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.5.</span> <span class="nav-text">运行.&#x2F;stack.sh进行安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="nav-number">1.2.6.</span> <span class="nav-text">安装成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">结论分析与体会</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="一枚常指针"
+      src="/images/profile_photo.jpg">
+  <p class="site-author-name" itemprop="name">一枚常指针</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一枚常指针</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
