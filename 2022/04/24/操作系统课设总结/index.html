@@ -22,29 +22,29 @@
 
   <meta name="description" content="操作系统课设Nachos系统总结中断控制器1、几个供外部程序使用的调用接口；  （1）Interrupt::SetLevel(IntOff)：用于关中断；  （2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作；  （3）Interrupt::Halt()：实现停机操作；  （4）Interrupt::Idl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统课设">
-<meta property="og:url" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/index.html">
+<meta property="og:title" content="操作系统课设总结">
+<meta property="og:url" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Const_Point">
 <meta property="og:description" content="操作系统课设Nachos系统总结中断控制器1、几个供外部程序使用的调用接口；  （1）Interrupt::SetLevel(IntOff)：用于关中断；  （2）Interrupt::SetLevel(IntOn)：用于开中断，并返回原中断的开关状态；外部程 序可通过调用这两个接口实现一些原子操作；  （3）Interrupt::Halt()：实现停机操作；  （4）Interrupt::Idl">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314194850745.png">
-<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220315235407884.png">
-<meta property="article:published_time" content="2022-04-24T03:18:38.000Z">
-<meta property="article:modified_time" content="2022-04-24T03:19:51.387Z">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220312173117116.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220312220345657.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220313005518934.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314004009009.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314005505549.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010620035.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010126127.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314011027327.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010728426.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314194850745.png">
+<meta property="og:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220315235407884.png">
+<meta property="article:published_time" content="2022-04-24T04:56:10.000Z">
+<meta property="article:modified_time" content="2022-04-24T04:58:01.065Z">
 <meta property="article:author" content="一枚常指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png">
+<meta name="twitter:image" content="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220312173117116.png">
 
-<link rel="canonical" href="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/">
+<link rel="canonical" href="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/">
 
 
 <script id="page-configurations">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title>操作系统课设 | Const_Point</title>
+  <title>操作系统课设总结 | Const_Point</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile_photo.jpg">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统课设
+          操作系统课设总结
         </h1>
 
         <div class="post-meta">
@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-04-24 11:18:38 / Modified: 11:19:51" itemprop="dateCreated datePublished" datetime="2022-04-24T11:18:38+08:00">2022-04-24</time>
+              <time title="Created: 2022-04-24 12:56:10 / Modified: 12:58:01" itemprop="dateCreated datePublished" datetime="2022-04-24T12:56:10+08:00">2022-04-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,7 +298,7 @@
 <p>（6） 熟悉 gdb 调试工具；</p>
 <h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="安装nachos"><a href="#安装nachos" class="headerlink" title="安装nachos"></a>安装nachos</h3><p>根据指导书操作</p>
 <p>最终结果</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312173117116.png" class title="image-20220312173117116">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220312173117116.png" class title="image-20220312173117116">
 
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>（1）在你所生成的 Nachos 系统中，下述函数的地址是多少？并说明找到这些函<br>数地址的过程及方法。<br>i. InterruptEnable()<br>ii. SimpleThread()<br>iii. ThreadFinish()<br>iv. ThreadRoot()</p>
 <p>（2）下述线程对象的地址是多少？并说明找到这些对象地址的过程及方法。<br>i. the main thread of the Nachos<br>ii. the forked thread created by the main thread</p>
@@ -470,7 +470,7 @@
 
 <p>修改文件</p>
 <p>可得实验结果</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220312220345657.png" class title="image-20220312220345657">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220312220345657.png" class title="image-20220312220345657">
 
 <h3 id="分析并理解，Thread-Fork-创建线程的方法"><a href="#分析并理解，Thread-Fork-创建线程的方法" class="headerlink" title="分析并理解，Thread::Fork()创建线程的方法"></a>分析并理解，Thread::Fork()创建线程的方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Thread::Fork(VoidFunctionPtr func, _int arg)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;t&#x27;, &quot;Forking thread \&quot;%s\&quot; with func = 0x%x, arg = %d\n&quot;,  name, (int) func, arg);//设置debug信息</span><br><span class="line"></span><br><span class="line">    StackAllocate(func, arg);//为线程分配栈</span><br><span class="line"></span><br><span class="line">    IntStatus oldLevel = interrupt-&gt;SetLevel(IntOff);//关中断</span><br><span class="line">    scheduler-&gt;ReadyToRun(this);    // 将线程状态设置为ready并加入就绪队列</span><br><span class="line"></span><br><span class="line">    (void) interrupt-&gt;SetLevel(oldLevel);//开中断</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
 
@@ -483,7 +483,7 @@
 <h3 id="rs轮转调度"><a href="#rs轮转调度" class="headerlink" title="-rs轮转调度"></a>-rs轮转调度</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">else if (!strcmp(*argv, &quot;-rs&quot;)) &#123;</span><br><span class="line">        ASSERT(argc &gt; 1);</span><br><span class="line">        RandomInit(atoi(*(argv + 1)));    // initialize pseudo-random</span><br><span class="line">                        // number generator</span><br><span class="line">        randomYield = TRUE;</span><br><span class="line">        argCount = 2;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>-rs后可跟数字，作为随机数初始化种子</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220313005518934.png" class title="image-20220313005518934">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220313005518934.png" class title="image-20220313005518934">
 
 <p>可以看到与上次运行结果确实不同，在producer0产生的消息未填满缓冲区时就发生了调度</p>
 <p>通过阅读Interrupt的源码可知，nachos中断响应的时机</p>
@@ -738,10 +738,10 @@
 </tr>
 </tbody></table>
 <p>在系统初始化后查看硬盘内容</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314004009009.png" class title="image-20220314004009009">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314004009009.png" class title="image-20220314004009009">
 
 <p>此时对应查看</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314005505549.png" class title="image-20220314005505549">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314005505549.png" class title="image-20220314005505549">
 
 <p>与DISK文件内容一致</p>
 <p>总结其布局</p>
@@ -784,7 +784,7 @@
 </li>
 </ul>
 <h3 id="更多的验证"><a href="#更多的验证" class="headerlink" title="更多的验证"></a>更多的验证</h3><p>（5）利用命令 nachos –cp ..&#x2F;test&#x2F;small samll 复制文件..&#x2F;test&#x2F;small 到硬盘 DISK 中； </p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010620035.png" class title="image-20220314010620035">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010620035.png" class title="image-20220314010620035">
 
 <p>可以看到3号扇区增加一个文件目录项small</p>
 <table>
@@ -808,16 +808,16 @@
 <li>分配扇区个数：1</li>
 <li>扇区位置：6号扇区</li>
 </ul>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010126127.png" class title="image-20220314010126127">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010126127.png" class title="image-20220314010126127">
 
 <p>验证可得相同内容</p>
 <p>（6）利用命令 hexdump –C DISK 查看硬盘格式化后硬盘的布局，理解创建一个 文件后相关的结构在硬盘上的存储布局； </p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314011027327.png" class title="image-20220314011027327">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314011027327.png" class title="image-20220314011027327">
 
 <p>文件目录表、位示图全部初始化为初始信息。</p>
 <p>（7）复制更多的文件到 DISK 中，然后删除一个文件，利用 hexdump –C DISK 查看文件的布局，分析文件系统的管理策略。</p>
 <p>复制small、big文件到DISK中，删除small文件，查看DISK内容</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314010728426.png" class title="image-20220314010728426">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314010728426.png" class title="image-20220314010728426">
 
 <p>删除文件samll后</p>
 <p>更改</p>
@@ -990,7 +990,7 @@
 </ol>
 <p>例子</p>
 <p>如果一个文件的大小为 100 字节，当从其偏移量 50（第一个字节的偏移量 是 0）开始写入 100 个字节后，该文件的大小应该为 150 字节</p>
-<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220314194850745.png" class title="image-20220314194850745">
+<img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220314194850745.png" class title="image-20220314194850745">
 
 <h2 id="实验过程-1"><a href="#实验过程-1" class="headerlink" title="实验过程"></a>实验过程</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>确定需要修改的文件和函数</p>
 <p>首先阅读源码可知，</p>
@@ -1032,7 +1032,7 @@
 <p>更新WriteAt函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">OpenFile::WriteAt(char *from, int numBytes, int position)</span><br><span class="line">&#123;</span><br><span class="line">    int fileLength = hdr-&gt;FileLength();</span><br><span class="line">    int i, firstSector, lastSector, numSectors;</span><br><span class="line">    bool firstAligned, lastAligned;</span><br><span class="line">    char *buf;</span><br><span class="line"></span><br><span class="line">//以下修改的内容</span><br><span class="line">    if (numBytes &lt;= 0)</span><br><span class="line">        return 0;                // 判断写入字节数</span><br><span class="line">    if ((position + numBytes) &gt; fileLength)&#123;</span><br><span class="line">        //判断写入后的位置是否大于文件长度</span><br><span class="line">        int incrementBytes = (position + numBytes) - fileLength;</span><br><span class="line">        int Extend = ExtendSpace(incrementBytes);</span><br><span class="line">        //扩展文件长度</span><br><span class="line">    &#125;</span><br><span class="line">//以上为修改内容</span><br><span class="line"></span><br><span class="line">    DEBUG(&#x27;f&#x27;, &quot;Writing %d bytes at %d, from file of length %d.\n&quot;,     </span><br><span class="line">            numBytes, position, fileLength);</span><br><span class="line"></span><br><span class="line">    firstSector = divRoundDown(position, SectorSize);</span><br><span class="line">    lastSector = divRoundDown(position + numBytes - 1, SectorSize);</span><br><span class="line">    numSectors = 1 + lastSector - firstSector;</span><br><span class="line"></span><br><span class="line">    buf = new char[numSectors * SectorSize];</span><br><span class="line"></span><br><span class="line">    firstAligned = (bool)(position == (firstSector * SectorSize));</span><br><span class="line">    lastAligned = (bool)((position + numBytes) == ((lastSector + 1) * SectorSize));</span><br><span class="line"></span><br><span class="line">// read in first and last sector, if they are to be partially modified</span><br><span class="line">    if (!firstAligned)</span><br><span class="line">        ReadAt(buf, SectorSize, firstSector * SectorSize);    </span><br><span class="line">    if (!lastAligned &amp;&amp; ((firstSector != lastSector) || firstAligned))</span><br><span class="line">        ReadAt(&amp;buf[(lastSector - firstSector) * SectorSize], </span><br><span class="line">                SectorSize, lastSector * SectorSize);    </span><br><span class="line"></span><br><span class="line">// copy in the bytes we want to change </span><br><span class="line">    bcopy(from, &amp;buf[position - (firstSector * SectorSize)], numBytes);</span><br><span class="line"></span><br><span class="line">// write modified sectors back    </span><br><span class="line">    for (i = firstSector; i &lt;= lastSector; i++)    </span><br><span class="line">        synchDisk-&gt;WriteSector(hdr-&gt;ByteToSector(i * SectorSize), </span><br><span class="line">                    &amp;buf[(i - firstSector) * SectorSize]);</span><br><span class="line">    delete [] buf;</span><br><span class="line"></span><br><span class="line">    //printf(&quot;NumByte: %d\n&quot;,numBytes);</span><br><span class="line">    return numBytes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/image-20220315235407884.png" class title="image-20220315235407884">
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/image-20220315235407884.png" class title="image-20220315235407884">
 
 <p>可以看到big的文件内容被添加在了medium后面</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>&#x3D;&#x3D;目前 Nachos 文件系统仅仅实现了单级目录结构，只有一个根目录。可以尝试采用目录树对文件进行管理。&#x3D;&#x3D;</p>
@@ -1368,13 +1368,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/03/30/ubuntu%E5%88%A9%E7%94%A8devstack%E6%90%AD%E5%BB%BAopenstack/" rel="prev" title="ubuntu利用devstack搭建openstack">
-      <i class="fa fa-chevron-left"></i> ubuntu利用devstack搭建openstack
+    <a href="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/" rel="prev" title="操作系统课设">
+      <i class="fa fa-chevron-left"></i> 操作系统课设
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE%E6%80%BB%E7%BB%93/" rel="next" title="操作系统课设总结">
-      操作系统课设总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
